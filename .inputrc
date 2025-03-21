@@ -1,0 +1,5 @@
+# Enable vi mode for readline
+set editing-mode vi
+
+# Enable vi mode for history search
+set keymap vi

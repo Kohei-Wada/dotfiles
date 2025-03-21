@@ -1,0 +1,21 @@
+# バックアップ・キャッシュ系
+*.bak
+*.swp
+*.swo
+.DS_Store
+
+# IDE関連
+
+.idea/
+.vscode/
+
+# ログ・一時ファイル
+*.log
+*.tmp
+
+*.cache
+
+# Python
+__pycache__/
+*.pyc
+

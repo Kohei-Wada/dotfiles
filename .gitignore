@@ -1,0 +1,8 @@
+.gitconfig.local
+
+.gnupg/*
+!.gnupg/gpg-agent.conf
+
+.aws/*
+
+.env

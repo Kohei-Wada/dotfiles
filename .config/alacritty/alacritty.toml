@@ -1,0 +1,24 @@
+[font]
+size = 13.0
+bold = { family = "Hack Nerd Font", style = "bold" }
+italic = { family = "Hack Nerd Font", style = "italic"}
+bold_italic= { family = "Hack Nerd Font", style = "italic"}
+normal = {family = "Hack Nerd Font", style = "Regular"}
+glyph_offset = { x = 0, y = 0}
+offset = { x = 0, y = 0 }
+
+[scrolling]
+history = 2000
+
+[selection]
+save_to_clipboard = false
+
+[terminal.shell]
+args = ["-l", "-c", "-i", "tmux new-session -A -s 0"]
+program = "/usr/bin/bash"
+
+[window]
+opacity = 1
+title = "Alacritty"
+
+[terminal]

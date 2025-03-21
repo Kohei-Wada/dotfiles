@@ -1,0 +1,17 @@
+[init]
+    defaultBranch = main
+[include]
+    path = ~/.gitconfig.local
+[core]
+    editor = nvim
+    quotepath = false
+    excludesFile = ~/config/git/ignore_global
+[fetch]
+    # auto prune remote tracking branches
+    prune = true
+[pull]
+    ff = only
+
+[alias]
+    whoami = "!git config user.name && git config user.email"
+[core]

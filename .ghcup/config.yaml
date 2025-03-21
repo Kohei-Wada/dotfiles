@@ -1,0 +1,52 @@
+cache: false
+def-ghc-conf-options: []
+downloader: Curl
+gpg-setting: GPGNone
+guess-version: true
+keep-dirs: Never
+key-bindings:
+  changelog:
+    Key:
+      KChar: c
+    Mods: []
+  down:
+    Key:
+      KChar: j
+    Mods: []
+  install:
+    Key:
+      KChar: i
+    Mods: []
+  quit:
+    Key:
+      KChar: q
+    Mods: []
+  set:
+    Key:
+      KChar: s
+    Mods: []
+  show-all:
+    Key:
+      KChar: a
+    Mods: []
+  uninstall:
+    Key:
+      KChar: u
+    Mods: []
+  up:
+    Key:
+      KChar: k
+    Mods: []
+meta-cache: 300
+meta-mode: Lax
+mirrors: {}
+no-network: false
+no-verify: false
+pager:
+  cmd: less
+  list: false
+platform-override: null
+url-source:
+- GHCupURL
+verbose: false
+

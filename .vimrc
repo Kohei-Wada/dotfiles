@@ -1,0 +1,57 @@
+" vim-plug directory
+if has('nvim')
+  let plug_directory = expand('~/.config/nvim/autoload/')
+else
+  let plug_directory = expand('~/.vim/autoload/')
+endif
+
+" Install vim-plug if it's not installed
+if empty(glob(plug_directory . 'plug.vim'))
+      execute '!curl -fLo ' . plug_directory . 'plug.vim --create-dirs https://raw.githubusercontent.com/junegunn/vim-plug/master/plug.vim'
+endif
+
+" Load vim-plug
+autocmd VimEnter * if len(filter(values(g:plugs), '!isdirectory(v:val.dir)'))
+  \| PlugInstall --sync | source $MYVIMRC
+  \| endif
+
+call plug#begin()
+if v:version >= 800
+    " LSP
+    Plug 'prabirshrestha/vim-lsp'
+    Plug 'prabirshrestha/asyncomplete.vim'
+    Plug 'prabirshrestha/asyncomplete-lsp.vim'
+    Plug 'mattn/vim-lsp-settings'
+
+    "Plugins for LSP
+    Plug 'hrsh7th/vim-vsnip'
+    Plug 'hrsh7th/vim-vsnip-integ'
+endif 
+
+if v:version >= 900 || (v:version == 900 && has('patch185'))
+    "github copilot(vim ^9.0.0185)
+    Plug 'github/copilot.vim'
+endif
+    "easymotion
+    Plug 'easymotion/vim-easymotion'
+
+    "ファインダ
+    Plug 'ctrlpvim/ctrlp.vim'
+
+    "vimの日本語ドキュメント
+    Plug 'vim-jp/vimdoc-ja'
+
+    Plug 'tpope/vim-dispatch'
+
+    "vim-plug自身のマニュアル
+    Plug 'junegunn/vim-plug'
+call plug#end()
+
+" Read configuration
+let s:plugs = get(s:, 'plugs', get(g:, 'plugs', {}))
+function! FindPlugin(name) abort
+  return has_key(s:plugs, a:name) ? isdirectory(s:plugs[a:name].dir) : 0
+endfunction
+command! -nargs=1 UsePlugin if !FindPlugin(<args>) | finish | endif
+
+runtime! _config/*.vim
