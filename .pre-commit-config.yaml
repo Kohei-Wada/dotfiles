@@ -3,3 +3,9 @@ repos:
     rev: v8.25.1
     hooks:
       - id: gitleaks
+
+  - repo: https://github.com/DavidAnson/markdownlint-cli2
+    rev: v0.17.2
+    hooks:
+      - id: markdownlint-cli2
+        args: ["--fix"]
