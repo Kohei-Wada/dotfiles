@@ -30,6 +30,7 @@ yazi
 glow
 fastfetch
 pinentry
+pre-commit
 EOF
 )
 
