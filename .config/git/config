@@ -5,7 +5,7 @@
 [core]
     editor = nvim
     quotepath = false
-    excludesFile = ~/config/git/ignore_global
+    excludesFile = ~/.config/git/ignore_global
 [fetch]
     # auto prune remote tracking branches
     prune = true
