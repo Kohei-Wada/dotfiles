@@ -10,7 +10,8 @@
     # auto prune remote tracking branches
     prune = true
 [pull]
-    ff = only
-
+    rebase = true
+[rebase]
+    autoStash = true
 [alias]
     whoami = "!git config user.name && git config user.email"
