@@ -25,6 +25,6 @@ repos:
       - id: shellcheck
 
   - repo: https://github.com/adrienverge/yamllint.git
-    rev: v1.26.3
+    rev: v1.37.1
     hooks:
       - id: yamllint
