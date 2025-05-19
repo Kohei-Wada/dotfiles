@@ -18,7 +18,32 @@ return {
 
   opts = {
     pickers = {
+      find_files = {
+        theme = "ivy",
+      },
+      live_grep = {
+        theme = "ivy",
+      },
+      help_tags = {
+        theme = "ivy",
+      },
+      man_pages = {
+        theme = "ivy",
+      },
+      git_files = {
+        theme = "ivy",
+      },
+      buffers = {
+        theme = "ivy",
+        mappings = {
+          i = {
+            ["<C-d>"] = require("telescope.actions").delete_buffer,
+          },
+        },
+      },
+
       command_history = {
+        theme = "ivy",
         mappings = {
           i = {
             -- WARNING: if this style , telescpoe is not lazy loaded.
@@ -46,8 +71,7 @@ return {
           ["<C-f>"] = {
             keepinsert = true,
             action = function(selection)
-              local builtin = require("telescope.builtin")
-              builtin.find_files(require("telescope.themes").get_ivy({ cwd = selection.path }))
+              require("telescope.builtin").find_files({ cwd = selection.path })
             end,
           },
         },
@@ -68,9 +92,8 @@ return {
       function()
         local cmdtype = vim.fn.getcmdtype()
         local builtin = require("telescope.builtin")
-        local themes = require("telescope.themes").get_ivy({})
         if cmdtype == ":" then
-          builtin.command_history(themes)
+          builtin.command_history()
         end
       end,
       desc = "Telescope - Command history",
@@ -79,42 +102,42 @@ return {
     {
       "<leader>ff",
       function()
-        require("telescope.builtin").find_files(require("telescope.themes").get_ivy({}))
+        require("telescope.builtin").find_files()
       end,
       desc = "Telescope - Find files",
     },
     {
       "<leader>fg",
       function()
-        require("telescope.builtin").live_grep(require("telescope.themes").get_ivy({}))
+        require("telescope.builtin").live_grep()
       end,
       desc = "Telescope - Grep",
     },
     {
       "<leader>fb",
       function()
-        require("telescope.builtin").buffers(require("telescope.themes").get_ivy({}))
+        require("telescope.builtin").buffers()
       end,
       desc = "Telescope - Buffers",
     },
     {
       "<leader>fh",
       function()
-        require("telescope.builtin").help_tags(require("telescope.themes").get_ivy({}))
+        require("telescope.builtin").help_tags()
       end,
       desc = "Telescope - Help tags",
     },
     {
       "<leader>fm",
       function()
-        require("telescope.builtin").man_pages(require("telescope.themes").get_ivy({}))
+        require("telescope.builtin").man_pages()
       end,
       desc = "Telescope - Man pages",
     },
     {
       "<leader>FF",
       function()
-        require("telescope.builtin").git_files(require("telescope.themes").get_ivy({}))
+        require("telescope.builtin").git_files()
       end,
       desc = "Telescope - Git Files",
     },
