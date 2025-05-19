@@ -4,9 +4,11 @@
 
 _log_info "Setting up bash configuration..."
 
+# history
 HISTCONTROL=ignoreboth
 HISTSIZE=1000
 HISTFILESIZE=2000
+export HISTFILE="${XDG_STATE_HOME}"/bash/history
 
 shopt -s histappend
 shopt -s checkwinsize
