@@ -13,3 +13,8 @@ if [ -f "$loader" ]; then
 else
     echo "Loader script not found: $loader"
 fi
+
+# load .env file
+if [ -f "$HOME/.env" ]; then
+    source "$HOME/.env"
+fi
