@@ -26,7 +26,7 @@ if v:version >= 800
     "Plugins for LSP
     Plug 'hrsh7th/vim-vsnip'
     Plug 'hrsh7th/vim-vsnip-integ'
-endif 
+endif
 
 if v:version >= 900 || (v:version == 900 && has('patch185'))
     "github copilot(vim ^9.0.0185)
