@@ -35,9 +35,6 @@ endif
     "easymotion
     Plug 'easymotion/vim-easymotion'
 
-    "ファインダ
-    Plug 'ctrlpvim/ctrlp.vim'
-
     "vimの日本語ドキュメント
     Plug 'vim-jp/vimdoc-ja'
 
@@ -45,6 +42,9 @@ endif
 
     "vim-plug自身のマニュアル
     Plug 'junegunn/vim-plug'
+
+    Plug 'junegunn/fzf', { 'do': { -> fzf#install() } }
+    Plug 'junegunn/fzf.vim'
 call plug#end()
 
 " Read configuration
