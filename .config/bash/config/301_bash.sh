@@ -10,6 +10,12 @@ HISTSIZE=1000
 HISTFILESIZE=2000
 export HISTFILE="${XDG_STATE_HOME}"/bash/history
 
+if ! _file_exists "$HISTFILE"; then
+  _log_info "Creating history file at $HISTFILE"
+  mkdir -p "${XDG_STATE_HOME}"/bash
+  touch "$HISTFILE"
+fi
+
 shopt -s histappend
 shopt -s checkwinsize
 shopt -s globstar

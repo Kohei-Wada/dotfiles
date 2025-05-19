@@ -15,12 +15,12 @@ _is_commands_available() {
     return 0
 }
 
-_is_file_exists() {
+_file_exists() {
     local file="$1"
     [ -f "$file" ]
 }
 
-_is_directory_exists() {
+_directory_exists() {
     local dir="$1"
     [ -d "$dir" ]
 }
