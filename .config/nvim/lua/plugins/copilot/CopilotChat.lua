@@ -53,22 +53,10 @@ return {
       function()
         local actions = require("CopilotChat.actions")
         local select = require("CopilotChat.select")
+        local theme = require("telescope.themes").get_ivy()
         require("CopilotChat.integrations.telescope").pick(
           actions.prompt_actions({ selection = select.visual }),
-          {
-            theme = "ivy",
-            sorting_strategy = "ascending",
-            layout_strategy = "bottom_pane",
-            layout_config = {
-              height = 25,
-            },
-            border = true,
-            borderchars = {
-              prompt = { "─", " ", " ", " ", "─", "─", " ", " " },
-              results = { " " },
-              preview = { "─", "│", "─", "│", "╭", "╮", "╯", "╰" },
-            },
-          }
+          theme
         )
       end,
       desc = "CopilotChat - Prompt actions",
