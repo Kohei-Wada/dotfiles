@@ -37,7 +37,9 @@ return {
         theme = "ivy",
         mappings = {
           i = {
-            ["<C-d>"] = require("telescope.actions").delete_buffer,
+            ["<C-d>"] = function(prompt_bufnr)
+              require("telescope.actions").delete_buffer(prompt_bufnr)
+            end,
           },
         },
       },
