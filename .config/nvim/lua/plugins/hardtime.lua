@@ -28,10 +28,27 @@ return {
       "trouble",
     },
 
+    ui = {
+      enter = true,
+      focusable = true,
+      border = {
+        style = "rounded",
+        text = {
+          top = "Hardtime Report",
+          top_align = "center",
+        },
+      },
+      position = "50%",
+      size = {
+        width = "80%",
+        height = "60%",
+      },
+    },
+
     hints = {
       ["ko"] = {
         message = function()
-          return "Use ko instead of O"
+          return "Use O instead of ko"
         end,
         length = 2,
       },
