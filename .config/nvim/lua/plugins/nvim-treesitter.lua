@@ -1,7 +1,5 @@
 return {
   "nvim-treesitter/nvim-treesitter",
-  lazy = true,
-  event = { "VeryLazy" },
   opts = {
     auto_install = true,
     additional_vim_regex_highlighting = true,
