@@ -2,7 +2,21 @@
 
 > #git:staged
 
-Commitizen規約に従ってコミットメッセージを書いてください。
-タイトルは最大50文字、メッセージは72文字で折り返してください。
-メッセージ全体を`gitcommit`言語のコードブロックで囲んでください。
-コミットメッセージは日本語で書いてください。
+Please write a commit message in English following the Conventional Commits specification.
+
+[Requirements]
+- The title (header) must be up to 50 characters. Wrap the body at 72 characters.
+- The title should be in the format: <type>: <summary>
+  - Example types: feat, fix, docs, style, refactor, test, chore
+- In the body, briefly describe the reason, background, or impact of the change (optional).
+- Add footers if needed (e.g., BREAKING CHANGE, related issues).
+- Enclose the entire message in a gitcommit code block.
+- Do not include unnecessary information or explanations.
+
+[Example output]
+```gitcommit
+feat: Add user profile editing feature
+
+Implemented a feature that allows users to edit their profile information.
+This is integrated with the existing authentication system.
+```

@@ -1,3 +1,3 @@
 > /COPILOT_FIX
 
-このコードにはバグがあります。修正してください。
+There is a bug in this code. Please identify the problem and fix it. Briefly explain the changes you made.
