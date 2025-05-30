@@ -8,6 +8,7 @@ if _is_command_available fzf; then
         local host
         host=$(grep -H -R '^Host' ~/.ssh | awk '{ print $2 }' | grep -v '\*' | fzf)
         if [ -n "$host" ]; then
+            echo "Connecting to $host..."
             ssh -A "$host" || return 1
         else
             echo "No SSH host selected."
