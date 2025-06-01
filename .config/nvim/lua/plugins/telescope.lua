@@ -68,16 +68,8 @@ return {
         case_mode = "smart_case",
       },
 
-      zoxide = {
-        mappings = {
-          ["<C-f>"] = {
-            keepinsert = true,
-            action = function(selection)
-              require("telescope.builtin").find_files({ cwd = selection.path })
-            end,
-          },
-        },
-      },
+      zoxide = {},
+
     },
   },
 
