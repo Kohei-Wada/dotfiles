@@ -1,2 +1,2 @@
-key_up=Ctrl-k
-key_down=Ctrl-j
+key_up=Ctrl-p,Ctrl-k
+key_down=Ctrl-n,Ctrl-j
