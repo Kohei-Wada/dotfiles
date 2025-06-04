@@ -28,3 +28,9 @@ repos:
     rev: v1.37.1
     hooks:
       - id: yamllint
+
+  - repo: https://github.com/JohnnyMorganz/stylua
+    rev: v0.20.0  # 使用するバージョン
+    hooks:
+      - id: stylua
+        files: \.lua$
