@@ -7,14 +7,13 @@ jobs:
 
     name: Markdown Lint
     runs-on: ubuntu-latest
-
     steps:
       - uses: actions/checkout@v3
       - uses: DavidAnson/markdownlint-cli2-action@v17
 
   stylua:
     name: stylua
-    runs-on: ubuntu-22.04
+    runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v4
       - uses: JohnnyMorganz/stylua-action@v4
@@ -23,3 +22,16 @@ jobs:
           version: latest
           # CLI arguments
           args: --color always --check .config/nvim/
+
+  luacheck:
+    name: Luacheck
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - name: Prepare
+        run: |
+          sudo apt-get update
+          sudo apt-get install -y luarocks
+          sudo luarocks install luacheck
+      - name: Lint
+        run: luacheck --conifg=.config/nvim/.luacheckrc .config/nvim
