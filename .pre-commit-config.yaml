@@ -30,7 +30,8 @@ repos:
       - id: yamllint
 
   - repo: https://github.com/JohnnyMorganz/stylua
-    rev: v0.20.0  # 使用するバージョン
+    rev: v0.20.0
     hooks:
       - id: stylua
-        files: \.lua$
+        args: ["--config-path=.config/nvim/.stylua.toml"]
+        files: .config/nvim/
