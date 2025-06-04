@@ -1,9 +1,9 @@
 vim.api.nvim_create_autocmd("FileType", {
   pattern = "*",
   callback = function()
-    vim.opt_local.formatoptions:remove("c")
-    vim.opt_local.formatoptions:remove("r")
-    vim.opt_local.formatoptions:remove("o")
+    vim.opt_local.formatoptions:remove "c"
+    vim.opt_local.formatoptions:remove "r"
+    vim.opt_local.formatoptions:remove "o"
   end,
 })
 
@@ -23,6 +23,6 @@ vim.api.nvim_create_autocmd("TextYankPost", {
 -- See `:help matchit`
 vim.api.nvim_create_autocmd("VimEnter", {
   callback = function()
-    vim.cmd(":MatchEnable")
+    vim.cmd ":MatchEnable"
   end,
 })

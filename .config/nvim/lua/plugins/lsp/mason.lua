@@ -46,12 +46,12 @@ return {
           vim.keymap.set("n", "<space>D", vim.lsp.buf.type_definition)
           vim.keymap.set("n", "gr", vim.lsp.buf.references)
           vim.keymap.set("n", "<space>f", function()
-            vim.lsp.buf.format({ async = true })
+            vim.lsp.buf.format { async = true }
           end, tmp)
         end,
       })
 
-      require("lazydev").setup({
+      require("lazydev").setup {
         runtime = nil,
         debug = false,
         integrations = {},
@@ -62,7 +62,7 @@ return {
           -- if .lua file exists in root_dir, return true
           -- return not vim.uv.fs_stat(root_dir .. "/.luarc.json")
         end,
-      })
+      }
     end,
   },
 }

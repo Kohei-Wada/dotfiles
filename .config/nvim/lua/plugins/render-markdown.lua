@@ -3,5 +3,5 @@ return {
   ft = { "markdown" },
   opts = {
     completions = { lsp = { enabled = true } },
-  }
+  },
 }

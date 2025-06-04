@@ -17,13 +17,13 @@ return {
   },
 
   config = function()
-    require("neotest").setup({
+    require("neotest").setup {
 
       status = { virtual_text = false },
       output = { open_on_run = false },
 
       adapters = {
-        require("neotest-python")({
+        require "neotest-python" {
           -- Extra arguments for nvim-dap configuration
           -- See https://github.com/microsoft/debugpy/wiki/Debug-configuration-settings for values
           dap = { justMyCode = false },
@@ -42,16 +42,16 @@ return {
           -- Returns if a given file path is a test file.
           -- NB: This function is called a lot so don't perform any heavy tasks within it.
           is_test_file = function(file_path)
-            return file_path:match("test_.*%.py$") ~= nil
+            return file_path:match "test_.*%.py$" ~= nil
           end,
           -- !!EXPERIMENTAL!! Enable shelling out to `pytest` to discover test
           -- instances for files containing a parametrize mark (default: false)
           pytest_discover_instances = true,
-        }),
+        },
 
-        require("rustaceanvim.neotest")({}),
+        require "rustaceanvim.neotest" {},
 
-        require("neotest-phpunit")({
+        require "neotest-phpunit" {
           phpunit_cmd = function()
             return "vendor/bin/phpunit"
           end,
@@ -59,9 +59,9 @@ return {
           filter_dirs = function()
             return { "vendor" }
           end,
-        }),
+        },
       },
-    })
+    }
   end,
 
   -- stylua: ignore

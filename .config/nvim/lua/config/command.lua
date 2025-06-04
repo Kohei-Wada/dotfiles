@@ -109,18 +109,18 @@ vim.api.nvim_create_user_command("TrackAllEvents", function()
       group = "TrackAllEventsGroup",
       callback = function(args)
         local msg = string.format("Event: %s, File: %s", event, args.file or "N/A")
-        print(msg)                           -- コマンドラインに出力
+        print(msg) -- コマンドラインに出力
         local log_file = "/tmp/nvim_events.log"
         vim.fn.writefile({ msg }, log_file, "a") -- ログファイルに記録
       end,
     })
   end
 
-  print("Event tracking started. Logs will be written to /tmp/nvim_events.log")
+  print "Event tracking started. Logs will be written to /tmp/nvim_events.log"
 end, {})
 
 -- :ClearTrackedEvents コマンドでautocmdを削除
 vim.api.nvim_create_user_command("ClearTrackedEvents", function()
-  vim.api.nvim_clear_autocmds({ group = "TrackAllEventsGroup" })
-  print("Event tracking stopped.")
+  vim.api.nvim_clear_autocmds { group = "TrackAllEventsGroup" }
+  print "Event tracking stopped."
 end, {})

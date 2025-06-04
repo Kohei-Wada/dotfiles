@@ -5,7 +5,7 @@ end
 local function make_prompts()
   local ps = {}
   local filtered_prompt_files =
-      vim.fn.globpath(vim.fn.stdpath("config") .. "/lua/plugins/copilot/prompts", "*.txt", false, true)
+    vim.fn.globpath(vim.fn.stdpath "config" .. "/lua/plugins/copilot/prompts", "*.txt", false, true)
   for _, file in ipairs(filtered_prompt_files) do
     local name = vim.fn.fnamemodify(file, ":t:r")
     if not ps[name] then
@@ -38,26 +38,23 @@ return {
       end,
     })
 
-    require("CopilotChat").setup({
+    require("CopilotChat").setup {
       window = {
         layout = "vertical",
       },
-      system_prompt = read_prompt_file(vim.fn.stdpath("config") .. "/lua/plugins/copilot/system/System.txt"),
+      system_prompt = read_prompt_file(vim.fn.stdpath "config" .. "/lua/plugins/copilot/system/System.txt"),
       prompts = make_prompts(),
-    })
+    }
   end,
 
   keys = {
     {
       "<leader>fp",
       function()
-        local actions = require("CopilotChat.actions")
-        local select = require("CopilotChat.select")
+        local actions = require "CopilotChat.actions"
+        local select = require "CopilotChat.select"
         local theme = require("telescope.themes").get_ivy()
-        require("CopilotChat.integrations.telescope").pick(
-          actions.prompt_actions({ selection = select.visual }),
-          theme
-        )
+        require("CopilotChat.integrations.telescope").pick(actions.prompt_actions { selection = select.visual }, theme)
       end,
       desc = "CopilotChat - Prompt actions",
       mode = { "n", "v" },
