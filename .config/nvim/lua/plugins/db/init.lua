@@ -1,3 +1,3 @@
 return {
-  require("plugins.db.vim-dadbod"),
+  require "plugins.db.vim-dadbod",
 }

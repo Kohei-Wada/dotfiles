@@ -6,8 +6,7 @@ return {
     "nvim-lua/plenary.nvim",
     {
       "nvim-telescope/telescope-fzf-native.nvim",
-      build =
-      "cmake -S. -Bbuild -DCMAKE_POLICY_VERSION_MINIMUM=3.5 -DCMAKE_BUILD_TYPE=Release && cmake --build build --config Release",
+      build = "cmake -S. -Bbuild -DCMAKE_POLICY_VERSION_MINIMUM=3.5 -DCMAKE_BUILD_TYPE=Release && cmake --build build --config Release",
     },
     {
       "jvgrootveld/telescope-zoxide",
@@ -70,15 +69,14 @@ return {
       },
 
       zoxide = {},
-
     },
   },
 
   config = function(_, opts)
-    local telescope = require("telescope")
+    local telescope = require "telescope"
     telescope.setup(opts)
-    telescope.load_extension("fzf")
-    telescope.load_extension("zoxide")
+    telescope.load_extension "fzf"
+    telescope.load_extension "zoxide"
   end,
 
   keys = {
@@ -86,7 +84,7 @@ return {
       "<C-r>",
       function()
         local cmdtype = vim.fn.getcmdtype()
-        local builtin = require("telescope.builtin")
+        local builtin = require "telescope.builtin"
         if cmdtype == ":" then
           builtin.command_history()
         end
@@ -139,7 +137,7 @@ return {
     {
       "<leader>zi",
       function()
-        require("telescope").extensions.zoxide.list(require("telescope.themes").get_ivy({}))
+        require("telescope").extensions.zoxide.list(require("telescope.themes").get_ivy {})
       end,
       desc = "Telescope - Zoxide",
     },

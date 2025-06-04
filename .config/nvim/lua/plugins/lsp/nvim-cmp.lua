@@ -21,22 +21,22 @@ return {
     "hrsh7th/nvim-cmp",
     event = { "InsertEnter", "CmdlineEnter" },
     config = function()
-      local cmp = require("cmp")
-      cmp.setup({
+      local cmp = require "cmp"
+      cmp.setup {
         snippet = {
           expand = function(args)
             require("luasnip").lsp_expand(args.body)
           end,
         },
 
-        mapping = cmp.mapping.preset.insert({
+        mapping = cmp.mapping.preset.insert {
           ["<C-p>"] = cmp.mapping.select_prev_item(),
           ["<C-n>"] = cmp.mapping.select_next_item(),
           ["<C-d>"] = cmp.mapping.scroll_docs(-4),
           ["<C-f>"] = cmp.mapping.scroll_docs(4),
           ["<C-e>"] = cmp.mapping.close(),
-          ["<CR>"] = cmp.mapping.confirm({ select = false }),
-        }),
+          ["<CR>"] = cmp.mapping.confirm { select = false },
+        },
 
         sources = {
           { name = "nvim_lsp" },
@@ -47,14 +47,14 @@ return {
             name = "lazydev",
             group_index = 0, -- set group index to 0 to skip loading LuaLS completions
           },
-          { name = 'render-markdown' },
+          { name = "render-markdown" },
         },
 
         window = {
           completion = cmp.config.window.bordered(),
           documentation = cmp.config.window.bordered(),
         },
-      })
+      }
 
       cmp.setup.cmdline({ "/", "?" }, {
         mapping = cmp.mapping.preset.cmdline(),

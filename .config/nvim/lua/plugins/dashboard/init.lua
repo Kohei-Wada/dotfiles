@@ -1,6 +1,6 @@
 local function get_logo()
   math.randomseed(os.time())
-  local ls = vim.fn.globpath(vim.fn.stdpath("config") .. "/lua/plugins/dashboard/logo", "*.txt", true, true)
+  local ls = vim.fn.globpath(vim.fn.stdpath "config" .. "/lua/plugins/dashboard/logo", "*.txt", true, true)
   return vim.fn.readfile(ls[math.random(1, #ls)], "\n")
 end
 
