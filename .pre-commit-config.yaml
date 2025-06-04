@@ -35,3 +35,9 @@ repos:
       - id: stylua
         args: ["--config-path=.config/nvim/.stylua.toml"]
         files: .config/nvim/
+
+  - repo: https://github.com/lunarmodules/luacheck
+    rev: v1.2.0
+    hooks:
+      - id: luacheck
+        args: ["--config=.config/nvim/.luacheckrc", .config/nvim/]
