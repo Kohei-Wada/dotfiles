@@ -31,6 +31,7 @@ glow
 fastfetch
 pinentry
 pre-commit
+stylua
 EOF
 )
 
