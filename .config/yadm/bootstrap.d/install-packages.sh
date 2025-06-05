@@ -32,6 +32,7 @@ fastfetch
 pinentry
 pre-commit
 stylua
+luarocks
 EOF
 )
 
