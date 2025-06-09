@@ -1,3 +1,4 @@
+---
 name: Update pre-commit version
 
 on:
@@ -33,3 +34,4 @@ jobs:
           else
             echo "No changes to commit"
           fi
+...
