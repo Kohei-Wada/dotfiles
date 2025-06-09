@@ -1,3 +1,4 @@
+---
 cache: false
 def-ghc-conf-options: []
 downloader: Curl
@@ -47,6 +48,6 @@ pager:
   list: false
 platform-override: null
 url-source:
-- GHCupURL
+  - GHCupURL
 verbose: false
-
+...
