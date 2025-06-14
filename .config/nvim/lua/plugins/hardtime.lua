@@ -52,6 +52,13 @@ return {
         end,
         length = 2,
       },
+
+      ["ggvG%$"] = {
+        message = function()
+          return "Use ggVG instead of ggvG$"
+        end,
+        length = 5,
+      },
     },
   },
 
