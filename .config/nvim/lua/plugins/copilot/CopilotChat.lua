@@ -49,7 +49,7 @@ return {
 
   keys = {
     {
-      "<leader>fp",
+      "<leader>fc",
       function()
         local actions = require "CopilotChat.actions"
         local select = require "CopilotChat.select"

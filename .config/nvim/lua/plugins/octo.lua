@@ -243,7 +243,19 @@ return {
   end,
 
   keys = {
-    { "<leader>ghi", ":Octo issue list<CR>", desc = "GitHub Issue" },
-    { "<leader>ghp", ":Octo issue list<CR>", desc = "GitHub PR" },
+    {
+      "<leader>fi",
+      function()
+        require("octo.pickers.telescope.provider").issues(require("telescope.themes").get_ivy {})
+      end,
+      desc = "GitHub Issue",
+    },
+    {
+      "<leader>fp",
+      function()
+        require("octo.pickers.telescope.provider").pull_requests(require("telescope.themes").get_ivy {})
+      end,
+      desc = "GitHub PR",
+    },
   },
 }
