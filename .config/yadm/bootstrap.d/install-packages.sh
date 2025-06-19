@@ -33,6 +33,7 @@ pinentry
 pre-commit
 stylua
 luarocks
+npm
 EOF
 )
 
