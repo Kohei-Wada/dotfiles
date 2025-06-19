@@ -12,6 +12,9 @@ export NVM_DIR="$HOME/.nvm"
 export DENO_INSTALL="$HOME/.deno"
 export PATH="$DENO_INSTALL/bin:$HOME/.bun/bin:$PATH"
 
+# Add npm global packages to PATH
+export PATH=~/.npm-global/bin:$PATH
+
 # Configure Node.js with readline support if rlwrap is available
 if _is_command_available rlwrap; then
     alias node='NODE_NO_READLINE=1 rlwrap node'
@@ -20,4 +23,3 @@ else
 fi
 
 _log_ok "JavaScript environment configuration set up successfully."
-
