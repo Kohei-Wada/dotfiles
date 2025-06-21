@@ -1,0 +1,21 @@
+#!/bin/bash
+# shellcheck disable=SC2086,SC1091
+packages=$(cat <<EOF
+git
+tmux
+jq
+zoxide
+gcc
+make
+cmake
+npm
+vim
+EOF
+)
+
+echo "Installing packages for Debian/Ubuntu..."
+sudo apt update && sudo apt upgrade -y
+
+# WARNING: don't quote $packages
+sudo apt install -y --no-install-recommends $packages
+echo "Packages installed successfully."
