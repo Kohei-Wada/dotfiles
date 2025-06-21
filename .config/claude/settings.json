@@ -14,7 +14,9 @@
             "Bash(git pull:*)"
         ],
         "deny": [
-            "Bash(curl:*)"
+            "Bash(curl:*)",
+            "Bash(sudo:*)",
+            "Bash(rm -rf *)"
         ]
     },
     "env": {},

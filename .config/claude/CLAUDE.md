@@ -2,7 +2,8 @@
 
 ## Conversation Guidelines
 
-- 常に日本語で会話する
+- claude codeのコンソール上では常に日本語で会話する
+- public repository上でのissueやpull request、ソースコードのコメントなどはすべて英語で行う
 
 ## Development Philosophy
 
