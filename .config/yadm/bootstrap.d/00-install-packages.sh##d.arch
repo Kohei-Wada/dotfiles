@@ -34,6 +34,6 @@ EOF
 echo "Installing packages for Arch Linux..."
 sudo pacman -Syu --noconfirm
 
-# WARNING: dont't quote $arch_packages
+# WARNING: don't quote $arch_packages
 sudo pacman -S --needed --noconfirm $arch_packages
 echo "Packages installed successfully."
