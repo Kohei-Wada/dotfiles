@@ -1,0 +1,39 @@
+#!/bin/bash
+# shellcheck disable=SC2086,SC1091
+arch_packages=$(cat <<EOF
+git
+neovim
+ripgrep
+fd
+fzf
+bat
+exa
+tmux
+btop
+jq
+ghq
+zoxide
+dust
+uv
+gcc
+make
+cmake
+github-cli
+starship
+yazi
+glow
+fastfetch
+pinentry
+pre-commit
+stylua
+luarocks
+npm
+EOF
+)
+
+echo "Installing packages for Arch Linux..."
+sudo pacman -Syu --noconfirm
+
+# WARNING: don't quote $arch_packages
+sudo pacman -S --needed --noconfirm $arch_packages
+echo "Packages installed successfully."
