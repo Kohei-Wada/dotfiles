@@ -3,7 +3,15 @@
         "allow": [
             "Bash(npm run lint)",
             "Bash(npm run test:*)",
-            "Read(~/.zshrc)"
+            "Bash(npm run build)",
+            "WebFetch(domain:docs.anthropic.com)",
+            "Bash(gh issue:*)",
+            "Bash(gh pr:*)",
+            "Bash(git commit:*)",
+            "Bash(git add:*)",
+            "Bash(git checkout:*)",
+            "Bash(git push:*)",
+            "Bash(git pull:*)"
         ],
         "deny": [
             "Bash(curl:*)"
