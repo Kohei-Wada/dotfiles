@@ -7,6 +7,7 @@ opt.backup = false -- Do not create backup files
 opt.writebackup = false -- Do not create autosave files
 opt.swapfile = false -- Do not create swap files
 opt.modifiable = true -- Make buffer modifiable
+opt.conceallevel = 1 -- Conceal level for syntax highlighting
 
 -- Display settings
 opt.number = true -- Show current line number
