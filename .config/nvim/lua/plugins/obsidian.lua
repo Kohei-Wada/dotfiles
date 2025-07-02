@@ -13,10 +13,16 @@ return {
     workspaces = {
       {
         name = "github",
-        path = "~/ghq/github.com/Kohei-Wada/Obsidian",
+        path = "~/ghq/github.com/Kohei-Wada/Obsidian/github",
+        overrides = {
+          new_notes_location = "01_FleetingNotes",
+          templates = {
+            folder = "99_Templates",
+            date_format = "%Y-%m-%d-%a",
+            time_format = "%H:%M",
+          },
+        },
       },
     },
-
-    -- see below for full list of options 👇
   },
 }
