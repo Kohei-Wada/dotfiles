@@ -36,4 +36,10 @@ return {
       },
     },
   },
+
+  config = function(_, opts)
+    require("obsidian").setup(opts)
+    vim.keymap.set("n", "gf", "<Cmd>ObsidianFollowLink<CR>", { noremap = true, silent = true })
+    vim.keymap.set("n", "<leader>nn", "<Cmd>ObsidianNewFromTemplate<CR>", { noremap = true, silent = true })
+  end,
 }
