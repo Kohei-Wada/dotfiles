@@ -17,6 +17,13 @@ return {
   },
 
   opts = {
+    defaults = {
+      mappings = {
+        i = {
+          ["<C-R>"] = require("telescope.actions").to_fuzzy_refine,
+        },
+      },
+    },
     pickers = {
       find_files = {
         theme = "ivy",
@@ -37,9 +44,7 @@ return {
         theme = "ivy",
         mappings = {
           i = {
-            ["<C-d>"] = function(prompt_bufnr)
-              require("telescope.actions").delete_buffer(prompt_bufnr)
-            end,
+            ["<C-d>"] = require("telescope.actions").delete_buffer,
           },
         },
       },
@@ -52,9 +57,7 @@ return {
             -- ["<C-f>"] = require("telescope.actions").edit_command_line,
 
             -- This style is lazy loaded.
-            ["<C-f>"] = function(prompt_bufnr)
-              return require("telescope.actions").edit_command_line(prompt_bufnr)
-            end,
+            ["<C-f>"] = require("telescope.actions").edit_command_line,
           },
         },
       },
