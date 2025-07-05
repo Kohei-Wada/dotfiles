@@ -47,5 +47,5 @@
   "vim-dadbod": { "branch": "master", "commit": "e95afed23712f969f83b4857a24cf9d59114c2e6" },
   "vim-dadbod-completion": { "branch": "master", "commit": "a8dac0b3cf6132c80dc9b18bef36d4cf7a9e1fe6" },
   "vim-dadbod-ui": { "branch": "master", "commit": "2900a1617b3df1a48683d872eadbe1101146a49a" },
-  "yadm-git.nvim": { "branch": "optimize-external-commands", "commit": "2300e5e148a808eadabd2329bedd26bc00de878a" }
+  "yadm-git.nvim": { "branch": "optimize-external-commands", "commit": "e27e90838360a4bfeca6f4d15fa6a70028637425" }
 }
