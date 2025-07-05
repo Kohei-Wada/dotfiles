@@ -1,5 +1,6 @@
 vim.api.nvim_create_autocmd("FileType", {
   pattern = "*",
+  desc = "Don't continue comment on new line when pressing Enter",
   callback = function()
     vim.opt_local.formatoptions:remove "c"
     vim.opt_local.formatoptions:remove "r"
