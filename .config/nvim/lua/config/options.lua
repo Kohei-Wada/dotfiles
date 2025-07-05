@@ -32,11 +32,4 @@ opt.completeopt = "menu,menuone,noselect" -- Set completion options
 opt.hlsearch = true -- Highlight search results
 -- opt.clipboard:append("unnamedplus")       -- Use system clipboard
 
--- Filetype settings
-vim.filetype.add {
-  extension = {
-    yml = "yaml.ansible", -- Recognize Ansible files as YAML
-  },
-}
-
 vim.diagnostic.config { virtual_text = true }

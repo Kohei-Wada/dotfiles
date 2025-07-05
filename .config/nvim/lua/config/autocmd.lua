@@ -22,7 +22,5 @@ vim.api.nvim_create_autocmd("TextYankPost", {
 -- Try it with `%` on a `function`, `if`, `for`, etc.
 -- See `:help matchit`
 vim.api.nvim_create_autocmd("VimEnter", {
-  callback = function()
-    vim.cmd ":MatchEnable"
-  end,
+  command = "MatchEnable",
 })
