@@ -43,6 +43,9 @@ return {
       git_branches = {
         theme = "ivy",
       },
+      registers = {
+        theme = "ivy",
+      },
       buffers = {
         theme = "ivy",
         mappings = {
@@ -116,6 +119,11 @@ return {
       "<leader>fb", -- find buffers
       require("telescope.builtin").buffers,
       desc = "Telescope - Buffers",
+    },
+    {
+      "<leader>fr", -- find registers
+      require("telescope.builtin").registers,
+      desc = "Telescope - Registers",
     },
     {
       "<leader>fh", -- find help tags
