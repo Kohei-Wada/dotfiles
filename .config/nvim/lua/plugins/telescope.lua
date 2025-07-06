@@ -40,6 +40,9 @@ return {
       git_files = {
         theme = "ivy",
       },
+      git_branches = {
+        theme = "ivy",
+      },
       buffers = {
         theme = "ivy",
         mappings = {
@@ -48,7 +51,6 @@ return {
           },
         },
       },
-
       command_history = {
         theme = "ivy",
         mappings = {
@@ -96,45 +98,38 @@ return {
       mode = { "c" },
     },
     {
-      "<leader>ff",
-      function()
-        require("telescope.builtin").find_files()
-      end,
+      "<leader>ff", -- find files
+      require("telescope.builtin").find_files,
       desc = "Telescope - Find files",
     },
     {
       "<leader>fg",
-      function()
-        require("telescope.builtin").live_grep()
-      end,
+      require("telescope.builtin").live_grep,
       desc = "Telescope - Grep",
     },
     {
-      "<leader>fb",
-      function()
-        require("telescope.builtin").buffers()
-      end,
+      "<leader>fB", -- find branches
+      require("telescope.builtin").git_branches,
+      desc = "Telescope - Branches",
+    },
+    {
+      "<leader>fb", -- find buffers
+      require("telescope.builtin").buffers,
       desc = "Telescope - Buffers",
     },
     {
-      "<leader>fh",
-      function()
-        require("telescope.builtin").help_tags()
-      end,
+      "<leader>fh", -- find help tags
+      require("telescope.builtin").help_tags,
       desc = "Telescope - Help tags",
     },
     {
-      "<leader>fm",
-      function()
-        require("telescope.builtin").man_pages()
-      end,
+      "<leader>fm", -- find man pages
+      require("telescope.builtin").man_pages,
       desc = "Telescope - Man pages",
     },
     {
       "<leader>FF",
-      function()
-        require("telescope.builtin").git_files()
-      end,
+      require("telescope.builtin").git_files,
       desc = "Telescope - Git Files",
     },
     {
