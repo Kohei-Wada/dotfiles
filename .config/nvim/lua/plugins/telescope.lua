@@ -58,7 +58,7 @@ return {
         theme = "ivy",
         mappings = {
           i = {
-            -- WARNING: if this style , telescpoe is not lazy loaded.
+            -- WARNING: if this style, telescope is not lazy loaded.
             -- ["<C-f>"] = require("telescope.actions").edit_command_line,
 
             -- This style is lazy loaded.
