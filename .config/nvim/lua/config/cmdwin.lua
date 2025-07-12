@@ -1,3 +1,5 @@
+vim.opt.cmdwinheight = 10 -- Set the height of the command-line window
+
 vim.api.nvim_create_autocmd("CmdwinEnter", {
   pattern = "*",
   desc = "Disable line numbers and sign column in command-line window",
