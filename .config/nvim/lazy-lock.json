@@ -26,7 +26,7 @@
   "neotest": { "branch": "master", "commit": "61d1951131e6770c815243d84a27ccd0436ec61c" },
   "neotest-phpunit": { "branch": "main", "commit": "baae8dfa0a3aaacd9f0bb6845d6348f5bcdc48bb" },
   "neotest-python": { "branch": "master", "commit": "ed9b4d794b89044cc32e5476e637936331473c6e" },
-  "none-ls.nvim": { "branch": "main", "commit": "db2a48b79cfcdab8baa5d3f37f21c78b6705c62e" },
+  "none-ls.nvim": { "branch": "main", "commit": "1280212f9308e13cb3c0e9a27b90024aa2bb7a89" },
   "nui.nvim": { "branch": "main", "commit": "de740991c12411b663994b2860f1a4fd0937c130" },
   "nvim-bqf": { "branch": "main", "commit": "9cbec7cf8ad2a902a0a41241ad16c3489620321b" },
   "nvim-cmp": { "branch": "main", "commit": "b5311ab3ed9c846b585c0c15b7559be131ec4be9" },
