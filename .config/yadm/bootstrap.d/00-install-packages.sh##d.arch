@@ -28,6 +28,7 @@ pre-commit
 stylua
 luarocks
 npm
+miller
 EOF
 )
 
