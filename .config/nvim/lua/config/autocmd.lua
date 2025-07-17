@@ -25,3 +25,11 @@ vim.api.nvim_create_autocmd("TextYankPost", {
 vim.api.nvim_create_autocmd("VimEnter", {
   command = "MatchEnable",
 })
+
+vim.api.nvim_create_autocmd("FileType", {
+  pattern = { "gitcommit", "gitrebase", "gitconfig", "gitlog" },
+  callback = function()
+    vim.opt_local.number = false
+    vim.opt_local.signcolumn = "no"
+  end,
+})
