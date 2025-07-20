@@ -10,8 +10,8 @@ return {
   opts = {
     workspaces = {
       {
-        name = "github",
-        path = "~/ghq/github.com/Kohei-Wada/Obsidian/github",
+        name = "vault",
+        path = "~/ghq/github.com/Kohei-Wada/Obsidian/vault",
         overrides = {
           new_notes_location = "01_FleetingNotes",
           notes_subdir = "01_FleetingNotes",
