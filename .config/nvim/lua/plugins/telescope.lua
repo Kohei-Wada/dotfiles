@@ -1,3 +1,25 @@
+local insert_template = function()
+  local template_dir = vim.fn.stdpath "config" .. "/templates"
+  require("telescope.builtin").find_files {
+    prompt_title = "Templates",
+    cwd = template_dir,
+    attach_mappings = function(prompt_bufnr, map)
+      map("i", "<CR>", function()
+        local selection = require("telescope.actions.state").get_selected_entry()
+        require("telescope.actions").close(prompt_bufnr)
+        local file_path = selection.path
+        local content = {}
+        for line in io.lines(file_path) do
+          table.insert(content, line)
+        end
+        local row, _ = unpack(vim.api.nvim_win_get_cursor(0))
+        vim.api.nvim_buf_set_lines(0, row - 1, row - 1, false, content)
+      end)
+      return true
+    end,
+  }
+end
+
 return {
   "nvim-telescope/telescope.nvim",
   cmd = { "Telescope" },
@@ -146,6 +168,11 @@ return {
         require("telescope").extensions.zoxide.list(require("telescope.themes").get_ivy {})
       end,
       desc = "Telescope - Zoxide",
+    },
+    {
+      "<leader>ft",
+      insert_template,
+      desc = "Telescope - Find Template",
     },
   },
 }
