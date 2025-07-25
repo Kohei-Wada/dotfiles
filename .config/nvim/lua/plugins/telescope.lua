@@ -1,5 +1,6 @@
 local insert_template = function()
-  local template_dir = vim.fn.stdpath "config" .. "/templates"
+  -- ~/templates
+  local template_dir = vim.fn.expand "~/templates"
   require("telescope.builtin").find_files {
     prompt_title = "Templates",
     cwd = template_dir,
