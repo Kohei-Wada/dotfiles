@@ -21,6 +21,7 @@ end
 
 return {
   "CopilotC-Nvim/CopilotChat.nvim",
+  commit = "d0537a749e11a68ebaea3967b9c698f998a700fe",
 
   dependencies = {
     { "zbirenbaum/copilot.lua" },
