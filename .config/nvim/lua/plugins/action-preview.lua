@@ -37,6 +37,7 @@ return {
 
   config = function(_, opts)
     require("actions-preview").setup(opts)
-    vim.keymap.set({ "v", "n" }, "<leader>a", require("actions-preview").code_actions)
+    -- Find Code Actions
+    vim.keymap.set({ "v", "n" }, "<leader>fa", require("actions-preview").code_actions)
   end,
 }
