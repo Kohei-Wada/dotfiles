@@ -77,6 +77,9 @@ return {
           },
         },
       },
+      current_buffer_fuzzy_find = {
+        theme = "ivy",
+      },
       command_history = {
         theme = "ivy",
         mappings = {
@@ -142,6 +145,11 @@ return {
       "<leader>fb", -- find buffers
       require("telescope.builtin").buffers,
       desc = "Telescope - Buffers",
+    },
+    {
+      "<leader>/", -- find buffers
+      require("telescope.builtin").current_buffer_fuzzy_find,
+      desc = "Telescope - Current buffer fuzzy find",
     },
     {
       "<leader>fr", -- find registers

@@ -45,6 +45,7 @@ return {
           vim.keymap.set("n", "gi", vim.lsp.buf.implementation)
           vim.keymap.set("n", "<space>D", vim.lsp.buf.type_definition)
           vim.keymap.set("n", "gr", vim.lsp.buf.references)
+          vim.keymap.set("n", "<space>a", vim.lsp.buf.code_action, tmp)
           vim.keymap.set("n", "<space>f", function()
             vim.lsp.buf.format { async = true }
           end, tmp)
