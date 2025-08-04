@@ -1,6 +1,16 @@
 return {
   "https://codeberg.org/esensar/nvim-dev-container",
   dependencies = "nvim-treesitter/nvim-treesitter",
+  command = {
+    "DevContainerAttach",
+    "DevContainerStart",
+    "DevContainerStop",
+    "DevContainerBuild",
+    "DevContainerComposeUp",
+    "DevContainerComposeDown",
+    "DevContainerComposeRestart",
+    "DevContainerComposeLogs",
+  },
   opts = {
     generate_commands = true,
     -- By default no autocommands are generated
