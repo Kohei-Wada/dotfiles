@@ -12,6 +12,7 @@ vim.api.nvim_create_autocmd("CmdwinEnter", {
 
 vim.api.nvim_create_autocmd("CmdwinEnter", {
   pattern = ":",
+  desc = "Disable cursorline in command-line window",
   callback = function()
     -- Delete quit commands from command history
     local patterns = {

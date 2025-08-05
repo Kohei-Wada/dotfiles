@@ -56,12 +56,7 @@ return {
         debug = false,
         integrations = {},
         library = {},
-        enabled = function(root_dir)
-          -- TODO: Now always return true when lua file, need to check neovim plugin file.
-          return true
-          -- if .lua file exists in root_dir, return true
-          -- return not vim.uv.fs_stat(root_dir .. "/.luarc.json")
-        end,
+        enabled = true,
       }
     end,
   },
