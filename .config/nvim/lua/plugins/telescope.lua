@@ -72,8 +72,8 @@ return {
       buffers = {
         theme = "ivy",
         mappings = {
-          i = {
-            ["<C-d>"] = require("telescope.actions").delete_buffer,
+          n = {
+            ["dd"] = require("telescope.actions").delete_buffer,
           },
         },
       },
