@@ -6,6 +6,7 @@ end
 
 return {
   "nvimdev/dashboard-nvim",
+  enabled = false, -- disable this plugin by default
   dependencies = {
     "nvim-tree/nvim-web-devicons",
   },
