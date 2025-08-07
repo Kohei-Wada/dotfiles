@@ -1,7 +1,7 @@
 local opt = vim.opt
 
 -- Basic settings
--- opt.shortmess:append "I" -- Do not show messages at startup
+opt.shortmess:append "I" -- Do not show messages at startup
 opt.fileencoding = "utf-8" -- Set file encoding to UTF-8
 opt.backup = false -- Do not create backup files
 opt.writebackup = false -- Do not create autosave files
