@@ -3,6 +3,9 @@ return {
   name = "catppuccin",
   priority = 1000,
   opts = {
+    float = {
+      transparent = true, -- enable transparent floating windows
+    },
     transparent_background = true,
   },
 
