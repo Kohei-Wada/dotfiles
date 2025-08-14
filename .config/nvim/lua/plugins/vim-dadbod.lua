@@ -16,6 +16,6 @@ return {
   end,
 
   keys = {
-    { "<leader>du", ":tabnew | DBUI<CR>", desc = "DBUI" },
+    { "<leader>db", ":tabnew | DBUI<CR>", desc = "DBUI" },
   },
 }
