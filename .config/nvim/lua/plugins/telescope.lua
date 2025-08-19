@@ -1,32 +1,10 @@
-local insert_template = function()
-  -- ~/templates
-  local template_dir = vim.fn.expand "~/templates"
-  require("telescope.builtin").find_files {
-    prompt_title = "Templates",
-    cwd = template_dir,
-    attach_mappings = function(prompt_bufnr, map)
-      map("i", "<CR>", function()
-        local selection = require("telescope.actions.state").get_selected_entry()
-        require("telescope.actions").close(prompt_bufnr)
-        local file_path = selection.path
-        local content = {}
-        for line in io.lines(file_path) do
-          table.insert(content, line)
-        end
-        local row, _ = unpack(vim.api.nvim_win_get_cursor(0))
-        vim.api.nvim_buf_set_lines(0, row - 1, row - 1, false, content)
-      end)
-      return true
-    end,
-  }
-end
-
 return {
   "nvim-telescope/telescope.nvim",
   cmd = { "Telescope" },
   branch = "0.1.x",
   dependencies = {
     "nvim-lua/plenary.nvim",
+    "Kohei-Wada/boil.nvim",
     {
       "nvim-telescope/telescope-fzf-native.nvim",
       build = "cmake -S. -Bbuild -DCMAKE_BUILD_TYPE=Release && cmake --build build --config Release",
@@ -102,6 +80,12 @@ return {
         case_mode = "smart_case",
       },
 
+      boil = {
+        theme = "ivy",
+        prompt_title = "My Templates",
+        sorting_strategy = "ascending",
+      },
+
       zoxide = {},
     },
   },
@@ -111,6 +95,7 @@ return {
     telescope.setup(opts)
     telescope.load_extension "fzf"
     telescope.load_extension "zoxide"
+    telescope.load_extension "boil"
   end,
 
   keys = {
@@ -180,7 +165,9 @@ return {
     },
     {
       "<leader>ft",
-      insert_template,
+      function()
+        vim.cmd "Telescope boil"
+      end,
       desc = "Telescope - Find Template",
     },
   },
