@@ -1,21 +1,14 @@
 return {
   "Kohei-Wada/boil.nvim",
+  cmd = "Boil",
   opts = {
     templates = {
       {
-        name = "Default Template",
-        path = "~/templates",
+        name = "Boil Bash Template",
+        path = "~/ghq/github.com/Kohei-Wada/boil.nvim/examples/templates/bash",
         variables = {
           author = "Kohei Wada",
         },
-      },
-      {
-        name = "GitHub .gitignore",
-        path = "~/ghq/github.com/github/gitignore",
-        filter = function(template)
-          local path = template.path
-          return path:match "%.gitignore$" or path:match "gitignore%.template"
-        end,
       },
     },
     variables = {
@@ -24,6 +17,8 @@ return {
       end,
       author = "Default Author",
     },
+    logger = {
+      level = vim.log.levels.ERROR,
+    },
   },
-  lazy = false,
 }

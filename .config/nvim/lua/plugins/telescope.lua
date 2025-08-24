@@ -169,6 +169,7 @@ return {
         vim.cmd "Telescope boil"
       end,
       desc = "Telescope - Find Template",
+      mode = { "n", "v" },
     },
   },
 }
