@@ -29,6 +29,9 @@ stylua
 luarocks
 npm
 miller
+cmake
+bash-completion
+openssh
 EOF
 )
 
