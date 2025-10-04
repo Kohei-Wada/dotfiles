@@ -1,6 +1,6 @@
-theme = catppuccin-mocha
+theme = Catppuccin Mocha
 
-# font-family = CaskaydiaCove Nerd Font
+font-family = CaskaydiaCove Nerd Font
 
 command = tmux new-session -A -s 0
 
