@@ -25,6 +25,7 @@ return {
         "bashls",
         "lua_ls",
         "pylsp",
+        "ruff",
       },
     },
     dependencies = {
