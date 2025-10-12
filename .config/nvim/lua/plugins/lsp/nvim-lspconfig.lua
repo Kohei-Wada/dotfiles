@@ -3,7 +3,6 @@ return {
   lazy = true,
 
   opts = {
-    -- Add any additional LSP servers you want to configure here
     servers = {
       lua_ls = {
         settings = {
@@ -14,11 +13,26 @@ return {
           },
         },
       },
+
+      pylsp = {
+        settings = {
+          pylsp = {
+            plugins = {
+              pycodestyle = {
+                maxLineLength = 100,
+              },
+              ruff = {
+                enabled = true,
+                -- 追加オプション例: lineLength = 100,
+              },
+            },
+          },
+        },
+      },
     },
   },
 
   config = function(_, opts)
-    -- Setup LSP servers
     for server, config in pairs(opts.servers) do
       vim.lsp.config(server, config)
       vim.lsp.enable(server)
