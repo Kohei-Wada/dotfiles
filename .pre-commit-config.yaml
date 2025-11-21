@@ -44,7 +44,7 @@ repos:
         args: ["--config=.config/nvim/.luacheckrc", .config/nvim/]
 
   - repo: https://github.com/rhysd/actionlint
-    rev: v1.7.8
+    rev: v1.7.9
     hooks:
       - id: actionlint
 ...
