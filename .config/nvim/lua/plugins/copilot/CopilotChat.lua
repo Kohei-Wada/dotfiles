@@ -21,8 +21,7 @@ end
 
 return {
   "CopilotC-Nvim/CopilotChat.nvim",
-  commit = "d0537a749e11a68ebaea3967b9c698f998a700fe",
-
+  lazy = false,
   dependencies = {
     { "zbirenbaum/copilot.lua" },
     { "nvim-lua/plenary.nvim" },
@@ -49,18 +48,6 @@ return {
   end,
 
   keys = {
-    {
-      "<leader>fp",
-      function()
-        local actions = require "CopilotChat.actions"
-        local select = require "CopilotChat.select"
-        local theme = require("telescope.themes").get_ivy()
-        require("CopilotChat.integrations.telescope").pick(actions.prompt_actions { selection = select.visual }, theme)
-      end,
-      desc = "CopilotChat - Prompt actions",
-      mode = { "n", "v" },
-    },
-
     {
       "<C-t>",
       function()
