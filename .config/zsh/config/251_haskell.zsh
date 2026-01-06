@@ -9,10 +9,8 @@ if _is_command_available ghcup; then
     export PATH="$PATH:$HOME/.ghcup/bin"
 fi
 
-# Enable Stack zsh completion if Stack is installed
-if _is_command_available stack; then
-    _log_info "Enabling Stack zsh completion..."
-    eval "$(stack --zsh-completion-script stack)"
-fi
+# Stack zsh completion requires proper fpath setup
+# The completion script uses compadd which only works in completion context
+# For now, skip automatic completion setup
 
 _log_ok "Haskell configuration set up successfully."
