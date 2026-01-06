@@ -1,0 +1,1 @@
+../../bash/config/000_xdg.sh

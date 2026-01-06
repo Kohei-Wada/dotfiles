@@ -1,0 +1,1 @@
+../../bash/config/250_go.sh

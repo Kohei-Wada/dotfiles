@@ -1,0 +1,15 @@
+#!/bin/zsh
+# shellcheck disable=SC1090,SC1091
+
+# 000-100 - General
+# 100-199 - libraries
+# 200-250 - cloud
+# 251-299 - languages
+# 300-399 - tools
+# 900-999 - custom
+
+BASE_DIR="$HOME/.config/zsh"
+for file in "$BASE_DIR"/config/*.{sh,zsh}(N); do
+    source "$file"
+done
+_log_ok "Zsh configuration files loaded successfully."
