@@ -1,0 +1,1 @@
+../../bash/config/357_gpg.sh

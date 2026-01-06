@@ -1,33 +1,35 @@
+#!/bin/zsh
 #shellcheck disable=SC2155,SC2034,SC2148
 
-# Lines configured by zsh-newuser-install
-HISTFILE=~/.histfile
-HISTSIZE=1000
-SAVEHIST=1000
-# End of lines configured by zsh-newuser-install
-# The following lines were added by compinstall
-zstyle :compinstall filename '/home/kohei/.zshrc'
+# If not interactive shell, return
+[[ -o interactive ]] || return
 
-bindkey -v
-
+# Initialize completion system early
 autoload -Uz compinit
 compinit
-# End of lines added by compinstall
 
+# Vi mode
+bindkey -v
 
-# if atuin is installed, initialize it
-if command -v atuin >/dev/null 2>&1; then
-    eval "$(atuin init zsh)"
-fi
-
-# if atuin is installed, initialize it
-if command -v atuin >/dev/null 2>&1; then
-    eval "$(starship init zsh)"
-fi
-
+# Edit command line in editor with 'v' in vicmd mode
 autoload -Uz edit-command-line
 zle -N edit-command-line
 bindkey -M vicmd 'v' edit-command-line
 
+# Menu completion bindings
 bindkey -M viins '^N' menu-complete
 bindkey -M vicmd '^N' menu-complete
+
+# Load modular configuration
+loader="$HOME/.config/zsh/load.zsh"
+if [[ -f "$loader" ]]; then
+    source "$loader"
+else
+    echo "Error: Loader script not found: $loader" >&2
+    return 1
+fi
+
+# Atuin shell history (load after other configs)
+if command -v atuin >/dev/null 2>&1; then
+    eval "$(atuin init zsh)"
+fi

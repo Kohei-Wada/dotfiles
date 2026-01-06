@@ -1,0 +1,1 @@
+../../bash/config/254_rust.sh

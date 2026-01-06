@@ -1,0 +1,1 @@
+../../bash/config/100_log.sh

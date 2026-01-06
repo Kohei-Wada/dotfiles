@@ -1,0 +1,1 @@
+../../bash/config/300_aliases.sh
