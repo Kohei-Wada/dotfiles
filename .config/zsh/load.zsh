@@ -10,6 +10,9 @@
 
 BASE_DIR="$HOME/.config/zsh"
 for file in "$BASE_DIR"/config/*.{sh,zsh}(N); do
-    source "$file"
+    if ! source "$file"; then
+        echo "Error: Failed to load configuration file: $file" >&2
+        return 1
+    fi
 done
 _log_ok "Zsh configuration files loaded successfully."

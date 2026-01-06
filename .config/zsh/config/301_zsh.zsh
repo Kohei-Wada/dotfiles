@@ -5,6 +5,7 @@
 _log_info "Setting up zsh configuration..."
 
 # History configuration
+XDG_STATE_HOME="${XDG_STATE_HOME:-$HOME/.local/state}"
 HISTFILE="${XDG_STATE_HOME}/zsh/history"
 HISTSIZE=10000
 SAVEHIST=10000

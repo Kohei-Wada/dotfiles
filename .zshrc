@@ -25,7 +25,8 @@ loader="$HOME/.config/zsh/load.zsh"
 if [[ -f "$loader" ]]; then
     source "$loader"
 else
-    echo "Loader script not found: $loader"
+    echo "Error: Loader script not found: $loader" >&2
+    return 1
 fi
 
 # Atuin shell history (load after other configs)
