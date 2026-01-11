@@ -79,13 +79,6 @@ return {
         override_file_sorter = true,
         case_mode = "smart_case",
       },
-
-      boil = {
-        theme = "ivy",
-        prompt_title = "My Templates",
-        sorting_strategy = "ascending",
-      },
-
       zoxide = {},
     },
   },
@@ -162,14 +155,6 @@ return {
         require("telescope").extensions.zoxide.list(require("telescope.themes").get_ivy {})
       end,
       desc = "Telescope - Zoxide",
-    },
-    {
-      "<leader>ft",
-      function()
-        vim.cmd "Telescope boil"
-      end,
-      desc = "Telescope - Find Template",
-      mode = { "n", "v" },
     },
   },
 }
