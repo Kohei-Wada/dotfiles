@@ -25,6 +25,8 @@ opt.tabstop = 4 -- Set tab width to 4 spaces
 opt.shiftwidth = 4 -- Set shift width to 4 spaces
 opt.expandtab = true -- Convert tabs to spaces
 
+opt.winborder = "rounded" -- Set window border style
+
 -- Other settings
 opt.backspace = "indent,eol,start,nostop" -- Allow backspace to delete indent, eol, and start
 opt.whichwrap = "b,s,h,l,<,>,[,],~" -- Allow cursor to move across lines with wrap
