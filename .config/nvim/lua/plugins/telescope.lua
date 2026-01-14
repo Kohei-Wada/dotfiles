@@ -4,7 +4,6 @@ return {
   branch = "0.1.x",
   dependencies = {
     "nvim-lua/plenary.nvim",
-    "Kohei-Wada/boil.nvim",
     {
       "nvim-telescope/telescope-fzf-native.nvim",
       build = "cmake -S. -Bbuild -DCMAKE_BUILD_TYPE=Release && cmake --build build --config Release",
@@ -88,7 +87,6 @@ return {
     telescope.setup(opts)
     telescope.load_extension "fzf"
     telescope.load_extension "zoxide"
-    telescope.load_extension "boil"
   end,
 
   keys = {
