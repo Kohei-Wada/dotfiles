@@ -1,5 +1,6 @@
 add_newline = true
 palette = "catppuccin_mocha"
+scan_timeout = 60
 
 [package]
 disabled = false
