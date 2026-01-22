@@ -1,7 +1,14 @@
 return {
   {
     "folke/lazydev.nvim",
-    lazy = true,
+    ft = "lua",
+    dependencies = {
+      "neovim/nvim-lspconfig",
+    },
+    opts = {
+      debug = false,
+      enabled = true,
+    },
   },
 
   {
@@ -14,7 +21,7 @@ return {
 
   {
     "williamboman/mason-lspconfig",
-    event = { "InsertEnter", "VeryLazy" },
+    event = "BufReadPre",
     opts = {
       automatic_enable = true,
       ensure_installed = {
@@ -47,14 +54,6 @@ return {
           end, opt)
         end,
       })
-
-      require("lazydev").setup {
-        runtime = nil,
-        debug = false,
-        integrations = {},
-        library = {},
-        enabled = true,
-      }
     end,
   },
 }

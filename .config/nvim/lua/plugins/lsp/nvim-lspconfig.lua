@@ -33,6 +33,8 @@ return {
   },
 
   config = function(_, opts)
+    require("lazydev").setup {}
+
     for server, config in pairs(opts.servers) do
       vim.lsp.config(server, config)
     end
