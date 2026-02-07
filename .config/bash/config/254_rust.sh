@@ -3,11 +3,10 @@
 
 _log_info "Setting up Rust configuration..."
 
-if [ -f "$HOME/.cargo/env" ]; then
-    source "$HOME/.cargo/env"
+if _is_command_available rustup; then
+    export PATH="$PATH:$HOME/.cargo/bin"
 else
-    _log_warn "$HOME/.cargo/env not found. Skipping Rust configuration."
-    return
+    _log_warn "rustup is not installed. Skipping Rust configuration."
 fi
 
 _log_ok "Rust configuration set up successfully."
