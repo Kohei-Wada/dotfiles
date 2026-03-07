@@ -32,7 +32,7 @@ repos:
       - id: yamllint
 
   - repo: https://github.com/JohnnyMorganz/stylua
-    rev: v2.3.1
+    rev: v2.4.0
     hooks:
       - id: stylua
         args: ["--config-path=.config/nvim/.stylua.toml"]
