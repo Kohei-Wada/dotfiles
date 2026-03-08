@@ -1,0 +1,7 @@
+@binding-set custom-bindings {
+  bind "<ctrl>h" { "delete-from-cursor" (chars, -1) };
+}
+
+entry {
+  -gtk-key-bindings: custom-bindings;
+}
