@@ -299,7 +299,7 @@ load_plugins {
 session_name "default"
 attach_to_session true
 default_mode "normal"
-default_layout "compact"
+default_layout "compact-top"
 pane_frames false
 theme "catppuccin-mocha"
 
