@@ -2,7 +2,8 @@ theme = Catppuccin Mocha
 
 #font-family = CaskaydiaCove Nerd Font
 
-command = tmux new-session -A -s 0
+# command = tmux new-session -A -s 0
+command = zellij
 
 background-opacity = 0.9
 
