@@ -461,7 +461,9 @@ theme "catppuccin-mocha"
 // (Requires restart)
 // Default: true (if the host terminal supports it)
 //
-// support_kitty_keyboard_protocol false
+// Disabled to fix compatibility with Textual TUI apps (e.g. Ctrl-[ not working).
+// Kitty Keyboard Protocol sends extended key sequences that Textual cannot parse.
+support_kitty_keyboard_protocol false
 
 // Whether to stack panes when resizing beyond a certain size
 // Default: true
