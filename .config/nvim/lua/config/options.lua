@@ -35,3 +35,5 @@ opt.hlsearch = true -- Highlight search results
 -- opt.clipboard:append("unnamedplus")       -- Use system clipboard
 
 vim.diagnostic.config { virtual_text = true }
+
+vim.g.loaded_python3_provider = 0
