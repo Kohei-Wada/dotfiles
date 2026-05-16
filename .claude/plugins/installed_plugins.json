@@ -1,0 +1,35 @@
+{
+  "version": 2,
+  "plugins": {
+    "superpowers@claude-plugins-official": [
+      {
+        "scope": "user",
+        "installPath": "/home/kohei/.claude/plugins/cache/claude-plugins-official/superpowers/5.1.0",
+        "version": "5.1.0",
+        "installedAt": "2026-01-27T14:09:31.295Z",
+        "lastUpdated": "2026-05-05T01:33:11.074Z",
+        "gitCommitSha": "469a6d81ebb8b827e284d4afb090c6c622d97747"
+      }
+    ],
+    "rust-analyzer-lsp@claude-plugins-official": [
+      {
+        "scope": "user",
+        "installPath": "/home/kohei/.claude/plugins/cache/claude-plugins-official/rust-analyzer-lsp/1.0.0",
+        "version": "1.0.0",
+        "installedAt": "2026-03-01T11:44:13.781Z",
+        "lastUpdated": "2026-03-01T11:44:13.781Z",
+        "gitCommitSha": "55b58ec6e5649104f926ba7558b567dc8d33c5ff"
+      }
+    ],
+    "supernemawashi@supernemawashi": [
+      {
+        "scope": "user",
+        "installPath": "/home/kohei/.claude/plugins/cache/supernemawashi/supernemawashi/1.5.0",
+        "version": "1.5.0",
+        "installedAt": "2026-05-16T06:09:32.616Z",
+        "lastUpdated": "2026-05-16T06:46:02.288Z",
+        "gitCommitSha": "423907f78d962bc751ff93d9ea1a83d7684d4b7f"
+      }
+    ]
+  }
+}
