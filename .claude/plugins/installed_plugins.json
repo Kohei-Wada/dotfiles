@@ -30,6 +30,16 @@
         "lastUpdated": "2026-05-16T06:46:02.288Z",
         "gitCommitSha": "423907f78d962bc751ff93d9ea1a83d7684d4b7f"
       }
+    ],
+    "knowledge-gardener@knowledge-gardener": [
+      {
+        "scope": "user",
+        "installPath": "/home/kohei/.claude/plugins/cache/knowledge-gardener/knowledge-gardener/0.1.0",
+        "version": "0.1.0",
+        "installedAt": "2026-05-16T10:29:31.857Z",
+        "lastUpdated": "2026-05-16T10:29:31.857Z",
+        "gitCommitSha": "d7184358e08f988655b2e10423fa2dcfae15429b"
+      }
     ]
   }
 }

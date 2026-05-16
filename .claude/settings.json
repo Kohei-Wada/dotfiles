@@ -19,7 +19,8 @@
   "enabledPlugins": {
     "superpowers@claude-plugins-official": true,
     "rust-analyzer-lsp@claude-plugins-official": true,
-    "supernemawashi@supernemawashi": true
+    "supernemawashi@supernemawashi": true,
+    "knowledge-gardener@knowledge-gardener": true
   },
   "extraKnownMarketplaces": {
     "knowledge-work-plugins": {
@@ -32,6 +33,12 @@
       "source": {
         "source": "github",
         "repo": "Kohei-Wada/supernemawashi"
+      }
+    },
+    "knowledge-gardener": {
+      "source": {
+        "source": "github",
+        "repo": "Kohei-Wada/knowledge-gardener"
       }
     }
   },
