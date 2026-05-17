@@ -13,16 +13,14 @@ _claude_is_wsl() {
     [[ -n "${WSL_DISTRO_NAME:-}" ]] || grep -qi microsoft /proc/version 2>/dev/null
 }
 
-# claude: systemd-inhibit で suspend / idle / lid-close を block しつつ起動する wrapper。
-# Remote Control 中に notePC が suspend してセッションが切れるのを防ぐ。
-# claude 終了で inhibit は自動 release。詳細は vault: claude-code-prevent-suspend-rc.md
-#
-# WSL では systemd-inhibit が Windows ホストのスリープを抑止できないので no-op になる。
-# WSL 用に Windows 側へ SetThreadExecutionState を投げる方式は vault note 参照。
+# Wraps `claude` with systemd-inhibit so the laptop won't suspend while a
+# Remote Control session is running. Inhibit is released when claude exits.
+# WSL is a no-op (systemd-inhibit can't reach the Windows host sleep state).
+# See vault: claude-code-prevent-suspend-rc.md
 claude() {
-    # `type -P` は function/alias を bypass して実体の binary path を返す。
-    # systemd-inhibit は shell を経由しないので `command` builtin が使えず、
-    # 絶対パスを直接渡す必要がある。
+    # `type -P` bypasses this function/alias and returns the real binary path.
+    # systemd-inhibit runs without a shell, so the `command` builtin can't be
+    # used — we need an absolute path.
     local claude_bin
     claude_bin=$(type -P claude)
     if [[ -z "$claude_bin" ]]; then
