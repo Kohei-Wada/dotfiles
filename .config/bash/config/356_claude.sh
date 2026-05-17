@@ -10,20 +10,20 @@ if ! _is_command_available 'claude'; then
 fi
 
 if ! _is_command_available 'systemd-inhibit'; then
-    _log_warn "systemd-inhibit not found. claude-rc will fall back to plain claude."
+    _log_warn "systemd-inhibit not found. claude wrapper will fall back to plain claude."
 fi
 
-# claude-rc: Claude Code を Remote Control 用に起動するラッパー。
-# systemd-inhibit で suspend / idle / lid-close を block し、claude 終了で自動 release。
-# 詳細は vault note: claude-code-prevent-suspend-rc.md
-claude-rc() {
+# claude: systemd-inhibit でラップし、起動中 suspend / idle / lid-close を block。
+# Remote Control 中に notePC が suspend してセッションが切れるのを防ぐ。
+# claude 終了で inhibit は自動 release。詳細は vault: claude-code-prevent-suspend-rc.md
+claude() {
     if _is_command_available 'systemd-inhibit'; then
         systemd-inhibit \
             --what=idle:sleep:handle-lid-switch \
             --who="claude-code" \
-            --why="Claude Code Remote Control session" \
+            --why="Claude Code session (prevent suspend during RC)" \
             --mode=block \
-            claude "$@"
+            command claude "$@"
     else
         command claude "$@"
     fi
