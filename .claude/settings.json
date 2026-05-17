@@ -6,7 +6,19 @@
       "Read(**/.env)",
       "Read(**/.env.*)",
       "Read(//home/kohei/.aws/**)",
-      "Read(//home/kohei/.ssh/id_*)"
+      "Read(//home/kohei/.ssh/id_*)",
+      "Bash(git reset --hard:*)",
+      "Bash(git reset --hard)",
+      "Bash(git clean -f:*)",
+      "Bash(git clean -fd:*)",
+      "Bash(git clean -fdx:*)",
+      "Bash(git clean -df:*)",
+      "Bash(git branch -D:*)",
+      "Bash(git checkout --:*)",
+      "Bash(git push --force:*)",
+      "Bash(git push --force)",
+      "Bash(git push -f:*)",
+      "Bash(git push -f)"
     ],
     "defaultMode": "auto"
   },
@@ -50,6 +62,7 @@
       }
     }
   },
+  "tui": "fullscreen",
   "voice": {
     "enabled": true,
     "mode": "hold"
@@ -61,6 +74,5 @@
   "voiceEnabled": true,
   "feedbackSurveyState": {
     "lastShownTime": 1754090971584
-  },
-  "tui": "fullscreen"
+  }
 }

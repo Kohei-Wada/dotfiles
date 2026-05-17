@@ -11,6 +11,7 @@
 # Most of this dir is auto-managed cache, secrets, or per-project state.
 .claude/*
 !.claude/settings.json
+!.claude/CLAUDE.md
 !.claude/plugins/
 .claude/plugins/*
 !.claude/plugins/installed_plugins.json
