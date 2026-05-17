@@ -20,9 +20,19 @@ _claude_is_wsl() {
 # WSL では systemd-inhibit が Windows ホストのスリープを抑止できないので no-op になる。
 # WSL 用に Windows 側へ SetThreadExecutionState を投げる方式は vault note 参照。
 claude() {
+    # `type -P` は function/alias を bypass して実体の binary path を返す。
+    # systemd-inhibit は shell を経由しないので `command` builtin が使えず、
+    # 絶対パスを直接渡す必要がある。
+    local claude_bin
+    claude_bin=$(type -P claude)
+    if [[ -z "$claude_bin" ]]; then
+        _log_error "claude binary not found in PATH"
+        return 127
+    fi
+
     if _claude_is_wsl; then
         _log_warn "WSL detected: systemd-inhibit does not affect Windows suspend. Running plain claude."
-        command claude "$@"
+        "$claude_bin" "$@"
         return
     fi
 
@@ -32,9 +42,9 @@ claude() {
             --who="claude-code" \
             --why="Claude Code session (prevent suspend during RC)" \
             --mode=block \
-            command claude "$@"
+            "$claude_bin" "$@"
     else
-        command claude "$@"
+        "$claude_bin" "$@"
     fi
 }
 
