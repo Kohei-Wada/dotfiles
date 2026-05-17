@@ -20,6 +20,12 @@
       "Bash(git push -f:*)",
       "Bash(git push -f)"
     ],
+    "allow": [
+      "Bash(git -C /home/kohei/ghq/github.com/Kohei-Wada/Obsidian add:*)",
+      "Bash(git -C /home/kohei/ghq/github.com/Kohei-Wada/Obsidian commit:*)",
+      "Bash(git -C /home/kohei/ghq/github.com/Kohei-Wada/Obsidian push:*)",
+      "Bash(git -C /home/kohei/ghq/github.com/Kohei-Wada/Obsidian push)"
+    ],
     "defaultMode": "auto"
   },
   "hooks": {
@@ -63,6 +69,10 @@
     }
   },
   "tui": "default",
+  "statusLine": {
+    "type": "command",
+    "command": "/home/kohei/.claude/statusline.sh"
+  },
   "voice": {
     "enabled": true,
     "mode": "hold"

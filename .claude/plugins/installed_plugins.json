@@ -34,11 +34,11 @@
     "knowledge-gardener@knowledge-gardener": [
       {
         "scope": "user",
-        "installPath": "/home/kohei/.claude/plugins/cache/knowledge-gardener/knowledge-gardener/0.5.0",
-        "version": "0.5.0",
+        "installPath": "/home/kohei/.claude/plugins/cache/knowledge-gardener/knowledge-gardener/0.5.3",
+        "version": "0.5.3",
         "installedAt": "2026-05-16T10:29:31.857Z",
-        "lastUpdated": "2026-05-17T02:48:08.811Z",
-        "gitCommitSha": "eb7344c1169d465c1b946d5662432b482352e468"
+        "lastUpdated": "2026-05-17T06:13:12.605Z",
+        "gitCommitSha": "6d2c48ac400e406205fdfb211a3c7dfb03b0902e"
       }
     ]
   }
