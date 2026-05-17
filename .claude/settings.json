@@ -1,5 +1,13 @@
 {
   "permissions": {
+    "deny": [
+      "Read(.env)",
+      "Read(.env.*)",
+      "Read(**/.env)",
+      "Read(**/.env.*)",
+      "Read(//home/kohei/.aws/**)",
+      "Read(//home/kohei/.ssh/id_*)"
+    ],
     "defaultMode": "auto"
   },
   "hooks": {
@@ -53,5 +61,6 @@
   "voiceEnabled": true,
   "feedbackSurveyState": {
     "lastShownTime": 1754090971584
-  }
+  },
+  "tui": "fullscreen"
 }
