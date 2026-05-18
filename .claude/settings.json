@@ -1,5 +1,11 @@
 {
   "permissions": {
+    "allow": [
+      "Bash(git -C /home/kohei/ghq/github.com/Kohei-Wada/Obsidian add:*)",
+      "Bash(git -C /home/kohei/ghq/github.com/Kohei-Wada/Obsidian commit:*)",
+      "Bash(git -C /home/kohei/ghq/github.com/Kohei-Wada/Obsidian push:*)",
+      "Bash(git -C /home/kohei/ghq/github.com/Kohei-Wada/Obsidian push)"
+    ],
     "deny": [
       "Read(.env)",
       "Read(.env.*)",
@@ -20,12 +26,6 @@
       "Bash(git push -f:*)",
       "Bash(git push -f)"
     ],
-    "allow": [
-      "Bash(git -C /home/kohei/ghq/github.com/Kohei-Wada/Obsidian add:*)",
-      "Bash(git -C /home/kohei/ghq/github.com/Kohei-Wada/Obsidian commit:*)",
-      "Bash(git -C /home/kohei/ghq/github.com/Kohei-Wada/Obsidian push:*)",
-      "Bash(git -C /home/kohei/ghq/github.com/Kohei-Wada/Obsidian push)"
-    ],
     "defaultMode": "auto"
   },
   "hooks": {
@@ -41,6 +41,10 @@
         ]
       }
     ]
+  },
+  "statusLine": {
+    "type": "command",
+    "command": "/home/kohei/.claude/statusline.sh"
   },
   "enabledPlugins": {
     "superpowers@claude-plugins-official": true,
@@ -63,10 +67,6 @@
     }
   },
   "tui": "default",
-  "statusLine": {
-    "type": "command",
-    "command": "/home/kohei/.claude/statusline.sh"
-  },
   "voice": {
     "enabled": true,
     "mode": "hold"
