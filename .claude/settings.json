@@ -78,5 +78,6 @@
   "voiceEnabled": true,
   "feedbackSurveyState": {
     "lastShownTime": 1754090971584
-  }
+  },
+  "remoteControlAtStartup": true
 }
