@@ -35,8 +35,15 @@ claude() {
     fi
 
     if _is_command_available 'systemd-inhibit'; then
+        # Interactive (TTY) use: keep lid-close → suspend so the laptop
+        # resumes normally on lid-open. Non-TTY (Remote Control) use also
+        # blocks lid-close to keep the session alive while the lid is shut.
+        local what="idle:sleep"
+        if [[ ! -t 0 ]]; then
+            what="idle:sleep:handle-lid-switch"
+        fi
         systemd-inhibit \
-            --what=idle:sleep:handle-lid-switch \
+            --what="$what" \
             --who="claude-code" \
             --why="Claude Code session (prevent suspend during RC)" \
             --mode=block \
