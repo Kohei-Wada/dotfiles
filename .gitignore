@@ -13,6 +13,3 @@
 !.claude/settings.json
 !.claude/statusline.sh
 !.claude/CLAUDE.md
-!.claude/plugins/
-.claude/plugins/*
-!.claude/plugins/installed_plugins.json

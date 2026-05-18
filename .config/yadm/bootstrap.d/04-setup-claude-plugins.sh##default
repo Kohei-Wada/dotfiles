@@ -1,0 +1,70 @@
+#!/usr/bin/env bash
+#
+# Install Claude Code plugins declared in ~/.claude/settings.json.
+#
+# settings.json is the source of truth (yadm-tracked):
+#   - extraKnownMarketplaces lists the marketplaces we use
+#   - enabledPlugins lists the plugins we want active
+# This script realises that declaration on a fresh machine by running
+# `claude plugin marketplace add` and `claude plugin install` for each entry.
+
+set -euo pipefail
+
+if ! command -v claude >/dev/null 2>&1; then
+    echo "claude CLI not found in PATH; skipping plugin setup" >&2
+    exit 0
+fi
+
+SETTINGS="$HOME/.claude/settings.json"
+if [[ ! -f "$SETTINGS" ]]; then
+    echo "no $SETTINGS; nothing to do"
+    exit 0
+fi
+
+if ! command -v jq >/dev/null 2>&1; then
+    echo "jq is required for claude plugin bootstrap" >&2
+    exit 1
+fi
+
+echo "Adding marketplaces from extraKnownMarketplaces..."
+while IFS=$'\t' read -r name source spec; do
+    [[ -z "$name" ]] && continue
+    case "$source" in
+        github)
+            target="$spec"
+            ;;
+        git|url)
+            target="$spec"
+            ;;
+        directory)
+            target="$spec"
+            ;;
+        *)
+            echo "  skip $name: unsupported source type '$source'" >&2
+            continue
+            ;;
+    esac
+    echo "  + $name ($source: $target)"
+    claude plugin marketplace add "$target" >/dev/null 2>&1 || \
+        echo "    (already added or failed — continuing)"
+done < <(jq -r '
+    .extraKnownMarketplaces // {}
+    | to_entries[]
+    | [.key, .value.source.source, (.value.source.repo // .value.source.url // .value.source.path)]
+    | @tsv
+' "$SETTINGS")
+
+echo "Installing enabled plugins..."
+while IFS= read -r plugin; do
+    [[ -z "$plugin" ]] && continue
+    echo "  + $plugin"
+    claude plugin install "$plugin" >/dev/null 2>&1 || \
+        echo "    (already installed or failed — continuing)"
+done < <(jq -r '
+    .enabledPlugins // {}
+    | to_entries[]
+    | select(.value == true)
+    | .key
+' "$SETTINGS")
+
+echo "Claude plugin bootstrap complete."
