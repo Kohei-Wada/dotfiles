@@ -50,7 +50,8 @@
     "superpowers@claude-plugins-official": true,
     "slack@claude-plugins-official": true,
     "supernemawashi@supernemawashi": true,
-    "knowledge-gardener@knowledge-gardener": true
+    "knowledge-gardener@knowledge-gardener": true,
+    "skill-creator@claude-plugins-official": true
   },
   "extraKnownMarketplaces": {
     "supernemawashi": {
@@ -73,11 +74,11 @@
   },
   "theme": "dark-daltonized",
   "editorMode": "vim",
+  "remoteControlAtStartup": true,
   "agentPushNotifEnabled": true,
   "skipAutoPermissionPrompt": true,
   "voiceEnabled": true,
   "feedbackSurveyState": {
     "lastShownTime": 1754090971584
-  },
-  "remoteControlAtStartup": true
+  }
 }
