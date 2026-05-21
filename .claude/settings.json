@@ -58,13 +58,15 @@
       "source": {
         "source": "github",
         "repo": "Kohei-Wada/supernemawashi"
-      }
+      },
+      "autoUpdate": true
     },
     "knowledge-gardener": {
       "source": {
         "source": "github",
         "repo": "Kohei-Wada/knowledge-gardener"
-      }
+      },
+      "autoUpdate": true
     }
   },
   "tui": "default",
