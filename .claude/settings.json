@@ -51,7 +51,9 @@
     "slack@claude-plugins-official": true,
     "supernemawashi@supernemawashi": true,
     "knowledge-gardener@knowledge-gardener": true,
-    "skill-creator@claude-plugins-official": true
+    "skill-creator@claude-plugins-official": true,
+    "frontend-design@claude-plugins-official": true,
+    "playwright@claude-plugins-official": true
   },
   "extraKnownMarketplaces": {
     "supernemawashi": {
@@ -69,6 +71,7 @@
       "autoUpdate": true
     }
   },
+  "language": "japanese",
   "tui": "default",
   "voice": {
     "enabled": true,
