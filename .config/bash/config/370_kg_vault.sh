@@ -6,6 +6,12 @@
 # other tool that wants to locate the user's primary markdown vault.
 export KG_VAULT="$HOME/ghq/github.com/Kohei-Wada/Obsidian/vault"
 
+# Blog repo clone — consumed only by knowledge-gardener's garden-harvest skill
+# as the emit target for the vault→blog pipe. The skill reads this repo's README
+# to discover its post-format / masking conventions; if unset, garden-harvest
+# stops and asks rather than guessing a path.
+export KG_BLOG_REPO="$HOME/ghq/github.com/Kohei-Wada/blog"
+
 # Opt in to knowledge-gardener's silent auto-recap on Claude Code's Stop hook.
 # When set, every Stop event spawns headless `claude -p` to write today's
 # session block into the daily note + git commit && git push the vault.
