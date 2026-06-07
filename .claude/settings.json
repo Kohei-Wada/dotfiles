@@ -4,7 +4,8 @@
       "Bash(git -C /home/kohei/ghq/github.com/Kohei-Wada/Obsidian add:*)",
       "Bash(git -C /home/kohei/ghq/github.com/Kohei-Wada/Obsidian commit:*)",
       "Bash(git -C /home/kohei/ghq/github.com/Kohei-Wada/Obsidian push:*)",
-      "Bash(git -C /home/kohei/ghq/github.com/Kohei-Wada/Obsidian push)"
+      "Bash(git -C /home/kohei/ghq/github.com/Kohei-Wada/Obsidian push)",
+      "Bash(git branch -D:*)"
     ],
     "deny": [
       "Read(.env)",
@@ -53,7 +54,8 @@
     "knowledge-gardener@knowledge-gardener": true,
     "skill-creator@claude-plugins-official": true,
     "frontend-design@claude-plugins-official": true,
-    "playwright@claude-plugins-official": true
+    "playwright@claude-plugins-official": true,
+    "rust-analyzer-lsp@claude-plugins-official": true
   },
   "extraKnownMarketplaces": {
     "supernemawashi": {
@@ -72,11 +74,13 @@
     }
   },
   "language": "japanese",
+  "effortLevel": "medium",
   "tui": "default",
   "voice": {
     "enabled": true,
     "mode": "hold"
   },
+  "skipWorkflowUsageWarning": true,
   "theme": "dark-daltonized",
   "editorMode": "vim",
   "remoteControlAtStartup": true,
