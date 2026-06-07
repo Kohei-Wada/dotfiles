@@ -1,10 +1,9 @@
-@import "mocha.css"; 
+@import "mocha.css";
 
 * {
-    font-family: "MesloLGS Nerd Font Mono Bold";
-    font-size: 16px;
+    font-family: "MesloLGS Nerd Font Mono";
+    font-size: 14px;
     min-height: 0;
-    font-weight: bold;
 }
 
 window#waybar {
@@ -18,8 +17,8 @@ window#waybar {
 
 #window {
     margin: 8px;
-    padding-left: 8;
-    padding-right: 8;
+    padding-left: 8px;
+    padding-right: 8px;
 }
 
 button {
@@ -35,7 +34,8 @@ button:hover {
 }
 
 #workspaces button {
-    padding: 0 4px;
+    padding: 0 6px;
+    color: @overlay1;
 }
 
 #workspaces button.focused {
@@ -51,43 +51,70 @@ button:hover {
 }
 
 #workspaces button.urgent {
-    background-color: #eb4d4b;
+    background-color: @red;
+    color: @base;
 }
 
+#language,
+#idle_inhibitor,
+#cpu,
+#memory,
 #pulseaudio,
 #clock,
 #battery,
-#cpu,
-#memory,
-#disk,
-#temperature,
-#backlight,
-#wireplumber,
 #tray,
-#network,
-#mode,
-#scratchpad {
-  margin-top: 2px;
-  margin-bottom: 2px;
-  margin-left: 4px;
-  margin-right: 4px;
-  padding-left: 4px;
-  padding-right: 4px;
+#network {
+    margin-top: 2px;
+    margin-bottom: 2px;
+    margin-left: 4px;
+    margin-right: 4px;
+    padding-left: 6px;
+    padding-right: 6px;
 }
 
-#clock {
-    color: @maroon;
-    border-bottom: 2px solid @maroon;
+#language {
+    color: @lavender;
+    border-bottom: 2px solid @lavender;
 }
 
-#clock.date {
-    color: @mauve;
-    border-bottom: 2px solid @mauve;
+#idle_inhibitor {
+    color: @green;
+    padding-left: 4px;
+    padding-right: 4px;
 }
 
-#pulseaudio {
-    color: @blue;
-    border-bottom: 2px solid @blue;
+#idle_inhibitor.activated {
+    color: @red;
+}
+
+#cpu {
+    color: @sapphire;
+    border-bottom: 2px solid @sapphire;
+}
+
+#cpu.warning {
+    color: @peach;
+    border-bottom: 2px solid @peach;
+}
+
+#cpu.critical {
+    color: @red;
+    border-bottom: 2px solid @red;
+}
+
+#memory {
+    color: @teal;
+    border-bottom: 2px solid @teal;
+}
+
+#memory.warning {
+    color: @peach;
+    border-bottom: 2px solid @peach;
+}
+
+#memory.critical {
+    color: @red;
+    border-bottom: 2px solid @red;
 }
 
 #network {
@@ -95,13 +122,19 @@ button:hover {
     border-bottom: 2px solid @yellow;
 }
 
-#idle_inhibitor {
-    margin-right: 12px;
-    color: #7cb342;
+#network.disconnected {
+    color: @overlay0;
+    border-bottom: 2px solid @overlay0;
 }
 
-#idle_inhibitor.activated {
-    color: @red;
+#pulseaudio {
+    color: @blue;
+    border-bottom: 2px solid @blue;
+}
+
+#pulseaudio.muted {
+    color: @overlay0;
+    border-bottom: 2px solid @overlay0;
 }
 
 #battery {
@@ -109,19 +142,44 @@ button:hover {
     border-bottom: 2px solid @green;
 }
 
+#battery.warning {
+    color: @yellow;
+    border-bottom: 2px solid @yellow;
+}
+
+#battery.critical {
+    color: @red;
+    border-bottom: 2px solid @red;
+}
+
+#battery.charging {
+    color: @green;
+    border-bottom: 2px solid @green;
+}
+
+#clock {
+    color: @maroon;
+    border-bottom: 2px solid @maroon;
+}
+
+#tray {
+    padding-right: 6px;
+}
+
+#tray > .passive {
+    -gtk-icon-effect: dim;
+}
+
+#tray > .needs-attention {
+    -gtk-icon-effect: highlight;
+}
+
 /* If workspaces is the leftmost module, omit left margin */
-.modules-left>widget:first-child>#workspaces {
+.modules-left > widget:first-child > #workspaces {
     margin-left: 0;
 }
 
 /* If workspaces is the rightmost module, omit right margin */
-.modules-right>widget:last-child>#workspaces {
+.modules-right > widget:last-child > #workspaces {
     margin-right: 0;
-}
-
-#custom-vpn {
-    color: @lavender;
-    border-radius: 15px;
-    padding-left: 6px;
-    padding-right: 6px;
 }

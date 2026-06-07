@@ -7,28 +7,108 @@
     "hyprland/window"
   ],
   "modules-right": [
+    "hyprland/language",
+    "idle_inhibitor",
+    "cpu",
+    "memory",
     "tray",
     "network",
     "pulseaudio",
     "battery",
     "clock"
   ],
-  "clock": {
-    "format": "<span foreground='#f5c2e7'>   </span>{:%a %d %H:%M}",
-    "tooltip-format": "<big>{:%Y %B}</big>\n<tt><small>{calendar}</small></tt>"
+
+  "hyprland/workspaces": {
+    "format": "{name}",
+    "on-click": "activate"
   },
+
+  "hyprland/window": {
+    "format": "{title}",
+    "separate-outputs": true,
+    "max-length": 80
+  },
+
+  "hyprland/language": {
+    "format": " {short}",
+    "tooltip-format": "Keyboard layout: {long}"
+  },
+
+  "idle_inhibitor": {
+    "format": "{icon}",
+    "format-icons": {
+      "activated": "",
+      "deactivated": ""
+    },
+    "tooltip-format-activated": "Idle inhibited (caffeine on)",
+    "tooltip-format-deactivated": "Idle allowed"
+  },
+
+  "cpu": {
+    "interval": 5,
+    "format": " {usage}%",
+    "tooltip": true,
+    "states": {
+      "warning": 70,
+      "critical": 90
+    }
+  },
+
+  "memory": {
+    "interval": 5,
+    "format": "󰍛 {percentage}%",
+    "tooltip-format": "Used: {used:0.1f}G / {total:0.1f}G  Swap: {swapUsed:0.1f}G",
+    "states": {
+      "warning": 75,
+      "critical": 90
+    }
+  },
+
+  "tray": {
+    "spacing": 10
+  },
+
+  "network": {
+    "format-wifi": "<span foreground='#f5e0dc'>  </span>{essid}",
+    "format-ethernet": "<span foreground='#f5e0dc'>󰈀  </span>{ipaddr}",
+    "format-linked": "<span foreground='#f5e0dc'>  </span>{ifname} (No IP)",
+    "format-disconnected": "<span foreground='#f5e0dc'>  </span>Offline",
+    "tooltip-format-wifi": "{essid} ({signalStrength}%)\nIP: {ipaddr}\nFreq: {frequency} MHz",
+    "tooltip-format-ethernet": "{ifname}\nIP: {ipaddr}",
+    "tooltip-format-disconnected": "Disconnected",
+    "interface": "wlp0s20f3",
+    "on-click": "ghostty -e nmtui"
+  },
+
+  "pulseaudio": {
+    "format": "{icon}  {volume}%",
+    "format-muted": " muted",
+    "format-icons": {
+      "headphone": "",
+      "default": [
+        "",
+        "",
+        ""
+      ]
+    },
+    "on-click": "pavucontrol",
+    "on-click-right": "pactl set-sink-mute @DEFAULT_SINK@ toggle",
+    "scroll-step": 5,
+    "tooltip-format": "{desc} — {volume}%"
+  },
+
   "battery": {
     "states": {
       "warning": 30,
       "critical": 15
     },
-    "format": "<span size='13000' foreground='#a6e3a1'>{icon} </span> {capacity}%",
-    "format-warning": "<span size='13000' foreground='#B1E3AD'>{icon} </span> {capacity}%",
-    "format-critical": "<span size='13000' foreground='#E38C8F'>{icon} </span> {capacity}%",
-    "format-charging": "<span size='13000' foreground='#B1E3AD'> </span>{capacity}%",
-    "format-plugged": "<span size='13000' foreground='#B1E3AD'> </span>{capacity}%",
-    "format-alt": "<span size='13000' foreground='#B1E3AD'>{icon} </span> {time}",
-    "format-full": "<span size='13000' foreground='#B1E3AD'> </span>{capacity}%",
+    "format": "<span foreground='#a6e3a1'>{icon} </span> {capacity}%",
+    "format-warning": "<span foreground='#f9e2af'>{icon} </span> {capacity}%",
+    "format-critical": "<span foreground='#f38ba8'>{icon} </span> {capacity}%",
+    "format-charging": "<span foreground='#a6e3a1'> </span>{capacity}%",
+    "format-plugged": "<span foreground='#a6e3a1'> </span>{capacity}%",
+    "format-alt": "<span foreground='#a6e3a1'>{icon} </span> {time}",
+    "format-full": "<span foreground='#a6e3a1'> </span>{capacity}%",
     "format-icons": [
       "",
       "",
@@ -36,29 +116,12 @@
       "",
       ""
     ],
-    "tooltip-format": "{time}"
+    "tooltip-format": "{capacity}% — {time}"
   },
-  "network": {
-    "format-wifi": "<span size='13000' foreground='#f5e0dc'>  </span>{essid}",
-    "format-ethernet": "<span size='13000' foreground='#f5e0dc'>󰤭  </span>{ipaddr}",
-    "format-linked": "{ifname} (No IP) ",
-    "format-disconnected": "<span size='13000' foreground='#f5e0dc'>  </span>Disconnected",
-    "tooltip-format-wifi": "Signal Strenght: {signalStrength}%",
-    "interface": "wlp0s20f3"
-  },
-  "tray": {
-    "spacing": 10
-  },
-  "pulseaudio": {
-    "format": "{icon}  {volume}%",
-    "format-muted": "",
-    "format-icons": {
-      "default": [
-        "",
-        "",
-        " "
-      ]
-    },
-    "on-click": "pavucontrol"
+
+  "clock": {
+    "format": "<span foreground='#f5c2e7'>  </span>{:%a %d %H:%M}",
+    "format-alt": "<span foreground='#f5c2e7'>  </span>{:%Y-%m-%d %H:%M:%S}",
+    "tooltip-format": "<big>{:%Y %B}</big>\n<tt><small>{calendar}</small></tt>"
   }
 }
