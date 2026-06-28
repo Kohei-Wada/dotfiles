@@ -11,12 +11,12 @@
         "baseURL": "http://192.168.0.19:11434/v1"
       },
       "models": {
-        "qwen3.6:27b": { "name": "Qwen3.6 27B", "limit": { "context": 131072, "output": 32768 } },
+        "qwen3.6:27b": { "name": "Qwen3.6 27B", "limit": { "context": 131072, "output": 65536 } },
         "qwen3:32b": { "name": "Qwen3 32B", "limit": { "context": 40960, "output": 16384 } },
         "gpt-oss:20b": { "name": "GPT-OSS 20B" },
-        "nemotron-3-nano:30b": { "name": "Nemotron 3 Nano 30B", "limit": { "context": 131072, "output": 32768 } },
+        "nemotron-3-nano:30b": { "name": "Nemotron 3 Nano 30B", "limit": { "context": 131072, "output": 65536 } },
         "gemma4:31b-it-qat": { "name": "Gemma4 31B IT QAT" },
-        "huihui_ai/Qwen3.6-abliterated:27b": { "name": "Qwen3.6 27B Abliterated (uncensored)", "limit": { "context": 131072, "output": 32768 } },
+        "huihui_ai/Qwen3.6-abliterated:27b": { "name": "Qwen3.6 27B Abliterated (uncensored)", "limit": { "context": 131072, "output": 65536 } },
         "qwen3:8b": { "name": "Qwen3 8B", "limit": { "context": 40960, "output": 16384 } }
       }
     }
