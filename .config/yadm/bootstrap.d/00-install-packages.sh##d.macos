@@ -1,0 +1,56 @@
+#!/bin/bash
+# shellcheck disable=SC2086,SC1091
+
+# Non-1:1 mappings from the Arch list (rest are identical formula names):
+#   exa            -> eza               (exa is disabled in Homebrew; eza is the maintained fork)
+#   github-cli     -> gh
+#   npm            -> node              (npm ships with the node formula; no standalone npm)
+#   pinentry       -> pinentry-mac      (GUI/keychain pinentry for macOS GPG)
+#   bash-completion-> bash-completion@2 (v2 targets bash 4+, the brew bash)
+#   cmake          -> listed once       (appeared twice in the Arch list)
+
+brew_packages=$(cat <<EOF
+git
+neovim
+ripgrep
+fd
+fzf
+bat
+eza
+tmux
+btop
+jq
+ghq
+zoxide
+dust
+uv
+gcc
+make
+cmake
+gh
+starship
+yazi
+glow
+fastfetch
+pinentry-mac
+pre-commit
+stylua
+luarocks
+node
+miller
+bash-completion@2
+openssh
+EOF
+)
+
+if ! command -v brew >/dev/null 2>&1; then
+    echo "Error: Homebrew not found. Install it first: https://brew.sh" >&2
+    exit 1
+fi
+
+echo "Installing packages for macOS..."
+brew update
+
+# WARNING: don't quote $brew_packages
+brew install $brew_packages
+echo "Packages installed successfully."
