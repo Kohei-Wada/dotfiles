@@ -61,6 +61,27 @@
                         "context": 40960,
                         "output": 8192
                     }
+                },
+                "huihui_ai/gpt-oss-abliterated:latest": {
+                    "name": "GPT-OSS 20B Abliterated (uncensored)",
+                    "limit": {
+                        "context": 131072,
+                        "output": 8192
+                    }
+                },
+                "lfm2.5:latest": {
+                    "name": "LFM 2.5 8.5B",
+                    "limit": {
+                        "context": 128000,
+                        "output": 8192
+                    }
+                },
+                "llama3.3:70b": {
+                    "name": "Llama 3.3 70B",
+                    "limit": {
+                        "context": 131072,
+                        "output": 8192
+                    }
                 }
             }
         }
