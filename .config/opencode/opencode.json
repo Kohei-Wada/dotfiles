@@ -10,7 +10,7 @@
             "npm": "@ai-sdk/openai-compatible",
             "name": "Ollama (rtx5090)",
             "options": {
-                "baseURL": "http://192.168.0.19:11434/v1"
+                "baseURL": "http://rtx5090:11434/v1"
             },
             "models": {
                 "huihui_ai/Qwen3.6-abliterated:27b": {
