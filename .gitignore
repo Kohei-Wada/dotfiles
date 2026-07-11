@@ -7,6 +7,9 @@
 
 .env
 
+# Never publish SSH material (keys, config with internal hosts, known_hosts)
+.ssh/
+
 # ~/.claude/ — Claude Code working dir. Track only declarative + lockfile bits.
 # Most of this dir is auto-managed cache, secrets, or per-project state.
 .claude/*
