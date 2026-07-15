@@ -18,7 +18,3 @@ fi
 if [ -f "$HOME/.env" ]; then
     source "$HOME/.env"
 fi
-
-export SSH_AUTH_SOCK="${XDG_RUNTIME_DIR:-/run/user/$(id -u)}/ssh-agent.socket"
-
-. "$HOME/.local/share/../bin/env"
