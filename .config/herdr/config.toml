@@ -1,0 +1,12 @@
+# herdr configuration
+# Place this file at ~/.config/herdr/config.toml
+
+[theme]
+name = "catppuccin"
+
+[terminal]
+default_shell = "bash"
+shell_mode = "non_login"   # bash -i 相当
+
+[session]
+resume_agents_on_restore = true
