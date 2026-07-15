@@ -14,3 +14,5 @@ resume_agents_on_restore = true
 [keys]
 split_vertical = "prefix+v"        # 左右
 split_horizontal = "prefix+minus"  # 上下（tmux の - と一致）
+navigate_workspace_up = "k"
+navigate_workspace_down = "j"
