@@ -100,5 +100,7 @@
     "small_model": "ollama/qwen3.6:27b",
     "compaction": {
         "auto": true
-    }
+    },
+    "lsp": true,
+    "formatter": true
 }
