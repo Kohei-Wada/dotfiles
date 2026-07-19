@@ -86,6 +86,16 @@
             }
         }
     },
+    "mcp": {
+        "searxng": {
+            "type": "local",
+            "command": ["npx", "-y", "mcp-searxng"],
+            "environment": {
+                "SEARXNG_URL": "http://rtx5090:8888"
+            },
+            "enabled": true
+        }
+    },
     "model": "ollama/huihui_ai/Qwen3.6-abliterated:27b",
     "small_model": "ollama/qwen3:8b",
     "compaction": {
