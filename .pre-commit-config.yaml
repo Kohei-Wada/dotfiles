@@ -1,4 +1,9 @@
 ---
+# pin node so pre-commit uses nodeenv's bundled npm 10 (npm 12 dropped
+# the --ignore-prepublish flag that pre-commit 4.6.0 still passes)
+default_language_version:
+  node: "22.23.1"
+
 repos:
   - repo: https://github.com/pre-commit/pre-commit-hooks
     rev: v6.0.0
