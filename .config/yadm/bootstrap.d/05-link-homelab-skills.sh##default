@@ -1,0 +1,36 @@
+#!/usr/bin/env bash
+#
+# Expose the homelab skills to every agent harness via ~/.claude/skills.
+#
+# The homelab@homelab-skills plugin installs into
+# ~/.claude/plugins/cache/<marketplace>/<plugin>/<version>/, which Claude Code
+# reads but opencode does not scan. opencode only looks at a fixed set of
+# directories, ~/.claude/skills/<name>/SKILL.md among them.
+#
+# Symlinking to the ghq clone rather than the plugin cache keeps the link off
+# the version-pinned path, so it survives plugin upgrades and follows git pull.
+
+set -euo pipefail
+
+REPO="$HOME/ghq/github.com/kohei-homelab/homelab-skills"
+
+if [[ ! -d "$REPO" ]]; then
+    if command -v ghq >/dev/null 2>&1; then
+        echo "cloning homelab-skills..."
+        ghq get kohei-homelab/homelab-skills
+    else
+        echo "ghq not found and $REPO missing; skipping skill links" >&2
+        exit 0
+    fi
+fi
+
+mkdir -p "$HOME/.claude/skills"
+
+for skill in "$REPO"/skills/hl-*; do
+    [[ -d "$skill" ]] || continue
+    name="$(basename "$skill")"
+    ln -sfn "$skill" "$HOME/.claude/skills/$name"
+    echo "  + $name"
+done
+
+echo "Homelab skill links complete."
