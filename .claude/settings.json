@@ -20,7 +20,6 @@
       "Bash(git clean -fd:*)",
       "Bash(git clean -fdx:*)",
       "Bash(git clean -df:*)",
-      "Bash(git branch -D:*)",
       "Bash(git checkout --:*)",
       "Bash(git push --force:*)",
       "Bash(git push --force)",
@@ -48,16 +47,25 @@
     "command": "/home/kohei/.claude/statusline.sh"
   },
   "enabledPlugins": {
-    "superpowers@claude-plugins-official": true,
+    "frontend-design@claude-plugins-official": true,
+    "homelab@homelab-skills": true,
+    "knowledge-gardener@knowledge-gardener": true,
+    "playwright@claude-plugins-official": true,
+    "rust-analyzer-lsp@claude-plugins-official": true,
+    "skill-creator@claude-plugins-official": true,
     "slack@claude-plugins-official": true,
     "supernemawashi@supernemawashi": true,
-    "knowledge-gardener@knowledge-gardener": true,
-    "skill-creator@claude-plugins-official": true,
-    "frontend-design@claude-plugins-official": true,
-    "playwright@claude-plugins-official": true,
-    "rust-analyzer-lsp@claude-plugins-official": true
+    "superpowers@claude-plugins-official": true,
+    "work@work-cc": true
   },
   "extraKnownMarketplaces": {
+    "knowledge-gardener": {
+      "source": {
+        "source": "github",
+        "repo": "Kohei-Wada/knowledge-gardener"
+      },
+      "autoUpdate": true
+    },
     "supernemawashi": {
       "source": {
         "source": "github",
@@ -65,12 +73,11 @@
       },
       "autoUpdate": true
     },
-    "knowledge-gardener": {
+    "work-cc": {
       "source": {
         "source": "github",
-        "repo": "Kohei-Wada/knowledge-gardener"
-      },
-      "autoUpdate": true
+        "repo": "Kohei-Wada/work-cc"
+      }
     }
   },
   "language": "japanese",
