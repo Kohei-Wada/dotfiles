@@ -106,7 +106,7 @@
         },
         "ha": {
             "type": "remote",
-            "url": "http://homeassistant.local:8123/api/mcp",
+            "url": "http://homeassistant:8123/mcp_server/sse",
             "oauth": false,
             "headers": {
                 "Authorization": "Bearer {env:HA_TOKEN}"
