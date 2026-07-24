@@ -14,6 +14,9 @@ You are running as a local model (ollama on rtx5090). Be disciplined about tools
 - Never invent URLs, file paths, API names, CLI flags, config keys, or version numbers. If you need a URL, find it via search — do not guess it.
 - Ground every factual claim in tool output. If a fetched page contradicts what you believed, trust the page.
 - Prefer `searxng` for open-ended lookups; use `webfetch` only for URLs you already know are correct.
+- Search result snippets are NOT enough to answer from. Always open the top result with `searxng_web_url_read` and answer from the page body. If the page does not contain the answer, say so — do not fill the gap from memory.
+- Before writing any date, weekday, or year — including inside a search query — get the current date first (`ha_GetDateTime` or bash `date`). Never assume the current year.
+- Do date arithmetic ("how many days until...") with bash `date`, not in your head.
 
 ## Editing code
 
