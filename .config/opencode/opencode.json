@@ -45,7 +45,7 @@
                 "nemotron-3-nano:30b": {
                     "name": "Nemotron 3 Nano 30B",
                     "limit": {
-                        "context": 1048576,
+                        "context": 524288,
                         "output": 32768
                     }
                 },
