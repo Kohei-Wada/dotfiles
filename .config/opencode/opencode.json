@@ -35,6 +35,13 @@
                         "output": 8192
                     }
                 },
+                "ornith:35b": {
+                    "name": "Ornith 1.0 35B (coding)",
+                    "limit": {
+                        "context": 131072,
+                        "output": 8192
+                    }
+                },
                 "nemotron-3-nano:30b": {
                     "name": "Nemotron 3 Nano 30B",
                     "limit": {
@@ -53,7 +60,7 @@
                     "name": "Gemma4 31B IT QAT",
                     "attachment": true,
                     "limit": {
-                        "context": 131072,
+                        "context": 245760,
                         "output": 8192
                     }
                 },
