@@ -38,8 +38,8 @@
                 "ornith:35b": {
                     "name": "Ornith 1.0 35B (coding)",
                     "limit": {
-                        "context": 131072,
-                        "output": 8192
+                        "context": 262144,
+                        "output": 32768
                     }
                 },
                 "nemotron-3-nano:30b": {
