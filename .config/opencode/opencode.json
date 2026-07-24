@@ -121,8 +121,8 @@
             "enabled": true
         }
     },
-    "model": "ollama/qwen3.6:27b",
-    "small_model": "ollama/qwen3.6:27b",
+    "model": "ollama/ornith:35b",
+    "small_model": "ollama/ornith:35b",
     "compaction": {
         "auto": true
     },
