@@ -45,8 +45,8 @@
                 "nemotron-3-nano:30b": {
                     "name": "Nemotron 3 Nano 30B",
                     "limit": {
-                        "context": 131072,
-                        "output": 8192
+                        "context": 1048576,
+                        "output": 32768
                     }
                 },
                 "gpt-oss:20b": {
