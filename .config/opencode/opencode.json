@@ -105,7 +105,11 @@
     "mcp": {
         "searxng": {
             "type": "local",
-            "command": ["npx", "-y", "mcp-searxng"],
+            "command": [
+                "npx",
+                "-y",
+                "mcp-searxng"
+            ],
             "environment": {
                 "SEARXNG_URL": "http://rtx5090:8888"
             },
@@ -121,8 +125,8 @@
             "enabled": true
         }
     },
-    "model": "ollama/ornith:35b",
-    "small_model": "ollama/ornith:35b",
+    "model": "ollama/qwen3.6:27b",
+    "small_model": "ollama/qwen3.6:27b",
     "compaction": {
         "auto": true
     },
