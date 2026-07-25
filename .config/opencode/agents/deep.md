@@ -1,6 +1,6 @@
 ---
-description: Multi-step work agent (research, extraction, coding phases) on the dense model that does not lose state across turns. Invoke with @deep or --agent deep for anything that chains tool results.
-mode: primary
+description: Multi-step work agent (research, extraction, coding phases) on the dense model that does not lose state across turns. Tab-switch to it mid-chat, @deep it as a subagent, or launch with --agent deep.
+mode: all
 model: ollama/qwen3.6:27b
 ---
 
