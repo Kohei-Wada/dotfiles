@@ -19,6 +19,18 @@ You are running as a local model (ollama on rtx5090). Be disciplined about tools
 - Do date arithmetic ("how many days until...") with bash `date`, not in your head.
 - After any device-control call (turn off/on, set temperature, etc.), read the entity state back and report the observed state — never report success from the call alone.
 
+## Investigation & verification tasks
+
+Before starting any investigation, log analysis, or verification task, check that the request contains all three of:
+
+1. Paths of the sources to read (vault notes, config repos, log files)
+2. The concrete observations to check (which log lines, time ranges, metrics)
+3. The expected output — the question to answer (e.g. "maintain or retract, state explicitly")
+
+If any item is missing, do NOT start the work. Reply only with the missing items as questions. Never fill the gaps with assumptions.
+
+When asked to re-verify a conclusion, never judge from the conversation context alone — read the primary evidence (vault notes, raw logs) first. Report numbers only as they appear in tool output; never a number you computed in your head.
+
 ## Editing code
 
 - Prefer editing existing files over creating new ones. Default to no comments; add one only when the WHY is non-obvious.
