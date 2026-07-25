@@ -31,7 +31,7 @@
                 "qwen3.6:27b": {
                     "name": "Qwen3.6 27B",
                     "limit": {
-                        "context": 131072,
+                        "context": 262144,
                         "output": 32768
                     }
                 },
