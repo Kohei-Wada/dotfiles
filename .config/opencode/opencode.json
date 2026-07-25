@@ -78,6 +78,22 @@
                         "output": 8192
                     }
                 },
+                "qwen3.5:4b": {
+                    "name": "Qwen3.5 4B (tool call 12/12, fast)",
+                    "attachment": true,
+                    "limit": {
+                        "context": 262144,
+                        "output": 32768
+                    }
+                },
+                "hf.co/InternScience/Agents-A1-4B-Q4_K_M-GGUF:latest": {
+                    "name": "Agents-A1 4B (agentic, tool call 12/12)",
+                    "attachment": true,
+                    "limit": {
+                        "context": 262144,
+                        "output": 32768
+                    }
+                },
                 "huihui_ai/gpt-oss-abliterated:latest": {
                     "name": "GPT-OSS 20B-A3.6B MoE Abliterated (uncensored)",
                     "limit": {
