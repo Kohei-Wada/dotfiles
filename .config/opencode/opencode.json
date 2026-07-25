@@ -32,7 +32,7 @@
                     "name": "Qwen3.6 27B",
                     "limit": {
                         "context": 131072,
-                        "output": 8192
+                        "output": 32768
                     }
                 },
                 "ornith:35b": {
