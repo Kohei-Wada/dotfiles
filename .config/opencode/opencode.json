@@ -22,21 +22,21 @@
                     }
                 },
                 "huihui_ai/Qwen3.6-abliterated:27b": {
-                    "name": "Qwen3.6 27B Abliterated 256K (uncensored)",
+                    "name": "Qwen3.6 27B Dense Abliterated 256K (uncensored)",
                     "limit": {
                         "context": 262144,
                         "output": 8192
                     }
                 },
                 "qwen3.6:27b": {
-                    "name": "Qwen3.6 27B",
+                    "name": "Qwen3.6 27B Dense",
                     "limit": {
                         "context": 131072,
                         "output": 32768
                     }
                 },
                 "ornith:35b": {
-                    "name": "Ornith 1.0 35B (coding)",
+                    "name": "Ornith 1.0 35B MoE (coding)",
                     "limit": {
                         "context": 262144,
                         "output": 32768
