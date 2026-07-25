@@ -22,35 +22,35 @@
                     }
                 },
                 "huihui_ai/Qwen3.6-abliterated:27b": {
-                    "name": "Qwen3.6 27B Dense Abliterated 256K (uncensored)",
+                    "name": "Qwen3.6 27B Abliterated 256K (uncensored)",
                     "limit": {
                         "context": 262144,
                         "output": 8192
                     }
                 },
                 "qwen3.6:27b": {
-                    "name": "Qwen3.6 27B Dense",
+                    "name": "Qwen3.6 27B",
                     "limit": {
                         "context": 131072,
                         "output": 32768
                     }
                 },
                 "ornith:35b": {
-                    "name": "Ornith 1.0 35B MoE (coding)",
+                    "name": "Ornith 1.0 35B-A3B MoE (coding)",
                     "limit": {
                         "context": 262144,
                         "output": 32768
                     }
                 },
                 "nemotron-3-nano:30b": {
-                    "name": "Nemotron 3 Nano 30B",
+                    "name": "Nemotron 3 Nano 30B-A3B MoE (Mamba2 hybrid)",
                     "limit": {
                         "context": 524288,
                         "output": 32768
                     }
                 },
                 "gpt-oss:20b": {
-                    "name": "GPT-OSS 20B",
+                    "name": "GPT-OSS 20B-A3.6B MoE",
                     "limit": {
                         "context": 131072,
                         "output": 8192
@@ -79,14 +79,14 @@
                     }
                 },
                 "huihui_ai/gpt-oss-abliterated:latest": {
-                    "name": "GPT-OSS 20B Abliterated (uncensored)",
+                    "name": "GPT-OSS 20B-A3.6B MoE Abliterated (uncensored)",
                     "limit": {
                         "context": 131072,
                         "output": 8192
                     }
                 },
                 "lfm2.5:latest": {
-                    "name": "LFM 2.5 8.5B",
+                    "name": "LFM2.5 8B-A1B MoE",
                     "limit": {
                         "context": 128000,
                         "output": 8192
