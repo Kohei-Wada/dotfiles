@@ -12,6 +12,9 @@ shell_mode = "non_login"   # bash -i 相当
 [session]
 resume_agents_on_restore = true
 
+[ui]
+mouse_capture = false
+
 [ui.sound]
 enabled = true
 
