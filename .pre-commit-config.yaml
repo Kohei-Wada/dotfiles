@@ -40,14 +40,23 @@ repos:
     rev: v2.5.2
     hooks:
       - id: stylua
+        name: stylua (nvim)
         args: ["--config-path=.config/nvim/.stylua.toml"]
         files: .config/nvim/
+      - id: stylua
+        name: stylua (hypr)
+        args: ["--config-path=.config/hypr/.stylua.toml"]
+        files: .config/hypr/
 
   - repo: https://github.com/lunarmodules/luacheck
     rev: v1.2.0
     hooks:
       - id: luacheck
+        name: luacheck (nvim)
         args: ["--config=.config/nvim/.luacheckrc", .config/nvim/]
+      - id: luacheck
+        name: luacheck (hypr)
+        args: ["--config=.config/hypr/.luacheckrc", .config/hypr/]
 
   - repo: https://github.com/rhysd/actionlint
     rev: v1.7.12
