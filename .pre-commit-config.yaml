@@ -55,9 +55,11 @@ repos:
       - id: luacheck
         name: luacheck (nvim)
         args: ["--config=.config/nvim/.luacheckrc", .config/nvim/]
+        files: .config/nvim/
       - id: luacheck
         name: luacheck (hypr)
         args: ["--config=.config/hypr/.luacheckrc", .config/hypr/]
+        files: .config/hypr/
 
   - repo: https://github.com/rhysd/actionlint
     rev: v1.7.12
