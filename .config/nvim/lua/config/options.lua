@@ -32,7 +32,7 @@ opt.backspace = "indent,eol,start,nostop" -- Allow backspace to delete indent, e
 opt.whichwrap = "b,s,h,l,<,>,[,],~" -- Allow cursor to move across lines with wrap
 opt.completeopt = "menu,menuone,noselect" -- Set completion options
 opt.hlsearch = true -- Highlight search results
--- opt.clipboard:append("unnamedplus")       -- Use system clipboard
+opt.clipboard:append "unnamedplus" -- Use system clipboard
 
 vim.diagnostic.config { virtual_text = true }
 
