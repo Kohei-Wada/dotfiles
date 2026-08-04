@@ -50,7 +50,7 @@ repos:
 
   - repo: https://github.com/lunarmodules/luacheck
     # v1.2.0 breaks on Lua 5.5; fix is on master, unreleased (eea104d)
-    rev: 2f764bdcabe8b7c19deadf0e9bb2adc19df1a4c5
+    rev: v1.2.0
     hooks:
       - id: luacheck
         name: luacheck (nvim)
