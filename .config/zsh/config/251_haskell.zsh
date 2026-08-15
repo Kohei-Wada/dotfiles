@@ -6,7 +6,7 @@ _log_info "Setting up Haskell configuration..."
 # Add GHCup to PATH and source its environment if available
 if _is_command_available ghcup; then
     _log_info "GHCup found. Adding to PATH and sourcing environment..."
-    export PATH="$PATH:$HOME/.ghcup/bin"
+    appendpath "$HOME/.ghcup/bin"
 fi
 
 # Stack zsh completion requires proper fpath setup
