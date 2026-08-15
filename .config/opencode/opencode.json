@@ -3,14 +3,37 @@
     "autoupdate": false,
     "share": "disabled",
     "enabled_providers": [
-        "ollama"
+        "ollama",
+        "vllm"
     ],
+    "skills": {
+        "paths": [
+            "~/ghq/github.com/kohei-homelab/homelab-skills/skills"
+        ]
+    },
     "provider": {
+        "vllm": {
+            "npm": "@ai-sdk/openai-compatible",
+            "name": "vLLM (thor)",
+            "options": {
+                "baseURL": "http://thor:8000/v1"
+            },
+            "models": {
+                "qwen3.8": {
+                    "name": "Qwen3.8 27B (vLLM)",
+                    "attachment": true,
+                    "limit": {
+                        "context": 262144,
+                        "output": 32768
+                    }
+                }
+            }
+        },
         "ollama": {
             "npm": "@ai-sdk/openai-compatible",
-            "name": "Ollama (rtx5090)",
+            "name": "Ollama (thor)",
             "options": {
-                "baseURL": "http://rtx5090:11434/v1"
+                "baseURL": "http://thor:11434/v1"
             },
             "models": {
                 "qwen2.5vl:3b": {
@@ -26,6 +49,14 @@
                     "limit": {
                         "context": 262144,
                         "output": 8192
+                    }
+                },
+                "qwen3.8:27b": {
+                    "name": "Qwen3.8 27B",
+                    "attachment": true,
+                    "limit": {
+                        "context": 262144,
+                        "output": 32768
                     }
                 },
                 "qwen3.6:27b": {
@@ -127,13 +158,13 @@
                 "mcp-searxng"
             ],
             "environment": {
-                "SEARXNG_URL": "http://rtx5090:8888"
+                "SEARXNG_URL": "http://thor:8888"
             },
             "enabled": true
         },
         "ha": {
             "type": "remote",
-            "url": "http://homeassistant:8123/mcp_server/sse",
+            "url": "http://homeassistant:8123/api/mcp",
             "oauth": false,
             "headers": {
                 "Authorization": "Bearer {env:HA_TOKEN}"
@@ -141,10 +172,14 @@
             "enabled": true
         }
     },
-    "model": "ollama/qwen3.6:27b",
-    "small_model": "ollama/qwen3.6:27b",
+    "model": "ollama/qwen3.8:27b",
+    "small_model": "ollama/qwen3.8:27b",
     "compaction": {
         "auto": true
+    },
+    "permission": {
+        "ha_*": "allow",
+        "searxng_*": "allow"
     },
     "lsp": true,
     "formatter": true
