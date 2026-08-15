@@ -4,7 +4,7 @@
 _log_info "Setting up Rust configuration..."
 
 if _is_command_available rustup; then
-    export PATH="$PATH:$HOME/.cargo/bin"
+    appendpath "$HOME/.cargo/bin"
 else
     _log_warn "rustup is not installed. Skipping Rust configuration."
 fi

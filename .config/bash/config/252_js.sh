@@ -8,12 +8,13 @@ export NVM_DIR="$HOME/.nvm"
 [ -s "$NVM_DIR/nvm.sh" ] && . "$NVM_DIR/nvm.sh"
 [ -s "$NVM_DIR/bash_completion" ] && . "$NVM_DIR/bash_completion"
 
-# Add Deno and Bun to PATH
+# Add Deno and Bun to front of PATH (idempotent)
 export DENO_INSTALL="$HOME/.deno"
-export PATH="$DENO_INSTALL/bin:$HOME/.bun/bin:$PATH"
+addpath "$DENO_INSTALL/bin"
+addpath "$HOME/.bun/bin"
 
-# Add npm global packages to PATH
-export PATH=~/.npm-global/bin:$PATH
+# Add npm global packages to front of PATH (idempotent)
+addpath "$HOME/.npm-global/bin"
 
 # Configure Node.js with readline support if rlwrap is available
 if _is_command_available rlwrap; then

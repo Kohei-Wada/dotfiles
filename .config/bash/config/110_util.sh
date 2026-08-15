@@ -24,3 +24,24 @@ _directory_exists() {
     local dir="$1"
     [ -d "$dir" ]
 }
+
+# Prepend a directory to PATH only if it isn't already present.
+# Idempotent: sourcing a config file twice will not duplicate entries.
+addpath() {
+    local dir="$1"
+    [ -n "$dir" ] || return 0
+    case ":$PATH:" in
+        *":$dir:"*) ;;
+        *) PATH="$dir:$PATH" ;;
+    esac
+}
+
+# Append a directory to PATH only if it isn't already present (idempotent).
+appendpath() {
+    local dir="$1"
+    [ -n "$dir" ] || return 0
+    case ":$PATH:" in
+        *":$dir:"*) ;;
+        *) PATH="$PATH:$dir" ;;
+    esac
+}

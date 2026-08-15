@@ -24,7 +24,9 @@ stty start undef
 
 set -o vi
 
-export PATH=$PATH:$HOME/.bin:$HOME/bin:$HOME/.local/bin
+appendpath "$HOME/.bin"
+appendpath "$HOME/bin"
+appendpath "$HOME/.local/bin"
 
 _log_ok "Bash configuration set up successfully."
 
