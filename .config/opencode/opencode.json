@@ -3,8 +3,7 @@
     "autoupdate": false,
     "share": "disabled",
     "enabled_providers": [
-        "ollama",
-        "vllm"
+        "ollama"
     ],
     "skills": {
         "paths": [
@@ -27,23 +26,6 @@
         }
     },
     "provider": {
-        "vllm": {
-            "npm": "@ai-sdk/openai-compatible",
-            "name": "vLLM (thor)",
-            "options": {
-                "baseURL": "http://thor:8000/v1"
-            },
-            "models": {
-                "qwen3.8": {
-                    "name": "Qwen3.8 27B (vLLM)",
-                    "attachment": true,
-                    "limit": {
-                        "context": 262144,
-                        "output": 32768
-                    }
-                }
-            }
-        },
         "ollama": {
             "npm": "@ai-sdk/openai-compatible",
             "name": "Ollama (thor)",
