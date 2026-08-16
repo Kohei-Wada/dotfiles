@@ -1,6 +1,6 @@
 # opencode agent rules (global)
 
-You are running as a local model (ollama on rtx5090). Be disciplined about tools and grounding — you hallucinate more than a frontier model, so verify instead of guessing.
+You are running as a local model (ollama on thor). Be disciplined about tools and grounding — you hallucinate more than a frontier model, so verify instead of guessing.
 
 ## STOP: read this before your first tool call
 
