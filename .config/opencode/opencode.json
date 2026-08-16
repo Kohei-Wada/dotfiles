@@ -11,6 +11,21 @@
             "~/ghq/github.com/kohei-homelab/homelab-skills/skills"
         ]
     },
+    "agent": {
+        "build": {
+            "reasoningEffort": "medium"
+        },
+        "quick": {
+            "description": "Speed lane: minimal reasoning (low) for tasks that close in one or two tool calls — device control, a single lookup, one self-contained answer. Not for work that chains tool results (investigation, multi-file edits); that goes to build/deep-thinker. @quick, or Tab to switch.",
+            "mode": "all",
+            "reasoningEffort": "low"
+        },
+        "deep-thinker": {
+            "description": "Deep reasoning (xhigh) for complex debugging, design, and hard problems. Tab to switch agents.",
+            "mode": "primary",
+            "reasoningEffort": "xhigh"
+        }
+    },
     "provider": {
         "vllm": {
             "npm": "@ai-sdk/openai-compatible",
@@ -85,13 +100,6 @@
                         "output": [
                             "text"
                         ]
-                    }
-                },
-                "ornith:35b": {
-                    "name": "Ornith 1.0 35B-A3B MoE (coding)",
-                    "limit": {
-                        "context": 262144,
-                        "output": 32768
                     }
                 },
                 "nemotron-3-nano:30b": {
