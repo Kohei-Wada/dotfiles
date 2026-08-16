@@ -2,9 +2,6 @@ theme = Catppuccin Mocha
 
 #font-family = CaskaydiaCove Nerd Font
 
-command = herdr
-# command = zellij
-
 background-opacity = 0.9
 
 cursor-style = block
