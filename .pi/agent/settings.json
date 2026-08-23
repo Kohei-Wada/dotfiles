@@ -1,10 +1,9 @@
 {
   "lastChangelogVersion": "0.84.2",
   "theme": "dark",
-  "skills": [
-    "~/ghq/github.com/kohei-homelab/homelab-skills/skills"
-  ],
   "packages": [
-    "npm:pi-web-access"
+    "npm:pi-web-access",
+    "npm:pi-mcp-adapter",
+    "git:git@github.com:kohei-homelab/homelab-skills@v0.11.0"
   ]
 }
