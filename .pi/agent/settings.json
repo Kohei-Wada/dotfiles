@@ -7,5 +7,10 @@
     "git:git@github.com:kohei-homelab/homelab-skills@v0.11.0"
   ],
   "defaultProvider": "ollama",
-  "defaultModel": "qwen3.8:27b"
+  "defaultModel": "qwen3.8:27b",
+  "defaultThinkingLevel": "medium",
+  "hideThinkingBlock": true,
+  "markdown": {
+    "mermaid": "streaming"
+  }
 }
