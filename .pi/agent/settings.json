@@ -3,5 +3,8 @@
   "theme": "dark",
   "skills": [
     "~/ghq/github.com/kohei-homelab/homelab-skills/skills"
+  ],
+  "packages": [
+    "npm:pi-web-access"
   ]
 }
