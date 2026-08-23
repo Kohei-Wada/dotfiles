@@ -1,0 +1,32 @@
+{
+  "providers": {
+    "ollama": {
+      "baseUrl": "http://192.168.0.19:11434/v1",
+      "api": "openai-completions",
+      "apiKey": "ollama",
+      "compat": {
+        "supportsDeveloperRole": false,
+        "supportsReasoningEffort": false
+      },
+      "models": [
+        {
+          "id": "qwen3.8:27b",
+          "name": "Qwen3.8 27B (thor)",
+          "contextWindow": 262144,
+          "maxTokens": 32768,
+          "input": ["text", "image"],
+          "cost": { "input": 0, "output": 0, "cacheRead": 0, "cacheWrite": 0 }
+        },
+        {
+          "id": "nemotron-3-nano:30b",
+          "name": "Nemotron 3 Nano 30B (thor)",
+          "reasoning": true,
+          "contextWindow": 524288,
+          "maxTokens": 32768,
+          "input": ["text"],
+          "cost": { "input": 0, "output": 0, "cacheRead": 0, "cacheWrite": 0 }
+        }
+      ]
+    }
+  }
+}

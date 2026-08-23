@@ -1,4 +1,4 @@
-# opencode agent rules (global)
+# pi agent rules (global)
 
 You are running as a local model (ollama on thor). Be disciplined about tools and grounding — you hallucinate more than a frontier model, so verify instead of guessing.
 
@@ -23,12 +23,12 @@ Any missing → output ONLY the numbered questions for the missing items and sto
 
 ## Tool discipline (most important)
 
-- For anything time-sensitive, current, or that you are not certain of, call the `searxng` web search FIRST, then read the top result with the fetch tool. Do not answer factual questions from memory alone.
+- For anything time-sensitive, current, or that you are not certain of, run a web search FIRST, then read the top result. Do not answer factual questions from memory alone. If no search tool is available in this session, say so rather than answering from memory.
 - Never invent URLs, file paths, API names, CLI flags, config keys, or version numbers. If you need a URL, find it via search — do not guess it.
 - Ground every factual claim in tool output. If a fetched page contradicts what you believed, trust the page.
-- Prefer `searxng` for open-ended lookups; use `webfetch` only for URLs you already know are correct.
-- Search result snippets are NOT enough to answer from. Always open the top result with `searxng_web_url_read` and answer from the page body. If the page does not contain the answer, say so — do not fill the gap from memory.
-- Before writing any date, weekday, or year — including inside a search query — get the current date first (`ha_GetDateTime` or bash `date`). Never assume the current year.
+- Prefer search for open-ended lookups; fetch a URL directly only when you already know it is correct.
+- Search result snippets are NOT enough to answer from. Always open the top result and answer from the page body. If the page does not contain the answer, say so — do not fill the gap from memory.
+- Before writing any date, weekday, or year — including inside a search query — get the current date first with bash `date`. Never assume the current year.
 - Do date arithmetic ("how many days until...") with bash `date`, not in your head.
 - After any device-control call (turn off/on, set temperature, etc.), read the entity state back and report the observed state — never report success from the call alone.
 
