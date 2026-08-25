@@ -1,10 +1,11 @@
 {
-  "lastChangelogVersion": "0.84.2",
+  "lastChangelogVersion": "0.84.3",
   "theme": "dark",
   "packages": [
     "npm:pi-web-access",
     "npm:pi-mcp-adapter",
-    "git:git@github.com:kohei-homelab/homelab-skills@v0.11.0"
+    "git:git@github.com:kohei-homelab/homelab-skills@v0.11.0",
+    "npm:pi-subagents"
   ],
   "defaultProvider": "ollama",
   "defaultModel": "qwen3.8:27b",
