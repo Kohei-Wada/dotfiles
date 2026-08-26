@@ -1,3 +1,9 @@
+local function builtin(name)
+  return function()
+    require("telescope.builtin")[name]()
+  end
+end
+
 return {
   "nvim-telescope/telescope.nvim",
   cmd = { "Telescope" },
@@ -16,71 +22,71 @@ return {
     },
   },
 
-  opts = {
-    defaults = {
-      mappings = {
-        i = {
-          ["<C-R>"] = require("telescope.actions").to_fuzzy_refine,
-        },
-      },
-    },
-    pickers = {
-      find_files = {
-        theme = "ivy",
-      },
-      live_grep = {
-        theme = "ivy",
-      },
-      help_tags = {
-        theme = "ivy",
-      },
-      man_pages = {
-        theme = "ivy",
-      },
-      git_files = {
-        theme = "ivy",
-      },
-      git_branches = {
-        theme = "ivy",
-      },
-      registers = {
-        theme = "ivy",
-      },
-      buffers = {
-        theme = "ivy",
-        mappings = {
-          n = {
-            ["dd"] = require("telescope.actions").delete_buffer,
-          },
-        },
-      },
-      current_buffer_fuzzy_find = {
-        theme = "ivy",
-      },
-      command_history = {
-        theme = "ivy",
+  -- opts must be a function: a plain table would run `require` at spec-eval time
+  opts = function()
+    local actions = require "telescope.actions"
+    return {
+      defaults = {
         mappings = {
           i = {
-            -- WARNING: if this style, telescope is not lazy loaded.
-            -- ["<C-f>"] = require("telescope.actions").edit_command_line,
-
-            -- This style is lazy loaded.
-            ["<C-f>"] = require("telescope.actions").edit_command_line,
+            ["<C-R>"] = actions.to_fuzzy_refine,
           },
         },
       },
-    },
-
-    extensions = {
-      fzf = {
-        fuzzy = true,
-        override_generic_sorter = true,
-        override_file_sorter = true,
-        case_mode = "smart_case",
+      pickers = {
+        find_files = {
+          theme = "ivy",
+        },
+        live_grep = {
+          theme = "ivy",
+        },
+        help_tags = {
+          theme = "ivy",
+        },
+        man_pages = {
+          theme = "ivy",
+        },
+        git_files = {
+          theme = "ivy",
+        },
+        git_branches = {
+          theme = "ivy",
+        },
+        registers = {
+          theme = "ivy",
+        },
+        buffers = {
+          theme = "ivy",
+          mappings = {
+            n = {
+              ["dd"] = actions.delete_buffer,
+            },
+          },
+        },
+        current_buffer_fuzzy_find = {
+          theme = "ivy",
+        },
+        command_history = {
+          theme = "ivy",
+          mappings = {
+            i = {
+              ["<C-f>"] = actions.edit_command_line,
+            },
+          },
+        },
       },
-      zoxide = {},
-    },
-  },
+
+      extensions = {
+        fzf = {
+          fuzzy = true,
+          override_generic_sorter = true,
+          override_file_sorter = true,
+          case_mode = "smart_case",
+        },
+        zoxide = {},
+      },
+    }
+  end,
 
   config = function(_, opts)
     local telescope = require "telescope"
@@ -93,60 +99,22 @@ return {
     {
       "<C-r>",
       function()
-        local cmdtype = vim.fn.getcmdtype()
-        local builtin = require "telescope.builtin"
-        if cmdtype == ":" then
-          builtin.command_history()
+        if vim.fn.getcmdtype() == ":" then
+          require("telescope.builtin").command_history()
         end
       end,
       desc = "Telescope - Command history",
       mode = { "c" },
     },
-    {
-      "<leader>ff", -- find files
-      require("telescope.builtin").find_files,
-      desc = "Telescope - Find files",
-    },
-    {
-      "<leader>fg",
-      require("telescope.builtin").live_grep,
-      desc = "Telescope - Grep",
-    },
-    {
-      "<leader>fB", -- find branches
-      require("telescope.builtin").git_branches,
-      desc = "Telescope - Branches",
-    },
-    {
-      "<leader>fb", -- find buffers
-      require("telescope.builtin").buffers,
-      desc = "Telescope - Buffers",
-    },
-    {
-      "<leader>/", -- find buffers
-      require("telescope.builtin").current_buffer_fuzzy_find,
-      desc = "Telescope - Current buffer fuzzy find",
-    },
-    {
-      "<leader>fr", -- find registers
-      require("telescope.builtin").registers,
-      desc = "Telescope - Registers",
-    },
-    {
-      "<leader>fh", -- find help tags
-      require("telescope.builtin").help_tags,
-      desc = "Telescope - Help tags",
-    },
-    {
-      "<leader>fm", -- find man pages
-      require("telescope.builtin").man_pages,
-      desc = "Telescope - Man pages",
-    },
-    {
-      "<leader>FF",
-      require("telescope.builtin").git_files,
-      desc = "Telescope - Git Files",
-    },
+    { "<leader>ff", builtin "find_files", desc = "Telescope - Find files" },
+    { "<leader>fg", builtin "live_grep", desc = "Telescope - Grep" },
+    { "<leader>fB", builtin "git_branches", desc = "Telescope - Branches" },
+    { "<leader>fb", builtin "buffers", desc = "Telescope - Buffers" },
+    { "<leader>/", builtin "current_buffer_fuzzy_find", desc = "Telescope - Current buffer fuzzy find" },
+    { "<leader>fr", builtin "registers", desc = "Telescope - Registers" },
+    { "<leader>fh", builtin "help_tags", desc = "Telescope - Help tags" },
+    { "<leader>fm", builtin "man_pages", desc = "Telescope - Man pages" },
+    { "<leader>FF", builtin "git_files", desc = "Telescope - Git Files" },
     {
       "<leader>zi",
       function()

@@ -21,12 +21,25 @@ end
 
 return {
   "CopilotC-Nvim/CopilotChat.nvim",
-  lazy = false,
   dependencies = {
     { "zbirenbaum/copilot.lua" },
     { "nvim-lua/plenary.nvim" },
   },
   branch = "main",
+  cmd = {
+    "CopilotChatExplain",
+    "CopilotChatReview",
+    "CopilotChatFix",
+    "CopilotChatFixJa",
+    "CopilotChatOptimize",
+    "CopilotChatDocs",
+    "CopilotChatTests",
+    "CopilotChatCommit",
+    "CopilotChatCommitJa",
+    "CopilotChatRefactor",
+    "CopilotChatSearch",
+    "CopilotChatSummarize",
+  },
 
   config = function()
     vim.api.nvim_create_autocmd("BufEnter", {
