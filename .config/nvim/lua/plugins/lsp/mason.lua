@@ -18,19 +18,25 @@ return {
     build = ":MasonUpdate",
     dependencies = { "williamboman/mason-lspconfig" },
     opts = {},
+
+    -- lazy loads dependencies before their parent, so mason-lspconfig carries no
+    -- opts of its own: setting it up there would run before mason.setup().
+    config = function(_, opts)
+      require("mason").setup(opts)
+      require("mason-lspconfig").setup {
+        automatic_enable = false,
+        ensure_installed = {
+          "bashls",
+          "lua_ls",
+          "pylsp",
+          "ruff",
+        },
+      }
+    end,
   },
 
   {
     "williamboman/mason-lspconfig",
     lazy = true,
-    opts = {
-      automatic_enable = false,
-      ensure_installed = {
-        "bashls",
-        "lua_ls",
-        "pylsp",
-        "ruff",
-      },
-    },
   },
 }
