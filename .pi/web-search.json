@@ -1,5 +1,1 @@
-{
-  "searxngBaseUrl": "http://192.168.0.19:8888",
-  "provider": "searxng",
-  "workflow": "none"
-}
+../.config/pi/web-search.json
