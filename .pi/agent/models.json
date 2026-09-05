@@ -18,6 +18,14 @@
           "cost": { "input": 0, "output": 0, "cacheRead": 0, "cacheWrite": 0 }
         },
         {
+          "id": "huihui_ai/Qwen3.8-abliterated:27b",
+          "name": "Qwen3.8 27B abliterated (thor)",
+          "contextWindow": 262144,
+          "maxTokens": 32768,
+          "input": ["text", "image"],
+          "cost": { "input": 0, "output": 0, "cacheRead": 0, "cacheWrite": 0 }
+        },
+        {
           "id": "nemotron-3-nano:30b",
           "name": "Nemotron 3 Nano 30B (thor)",
           "reasoning": true,
