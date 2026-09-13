@@ -32,15 +32,17 @@ opt.backspace = "indent,eol,start,nostop" -- Allow backspace to delete indent, e
 opt.whichwrap = "b,s,h,l,<,>,[,],~" -- Allow cursor to move across lines with wrap
 opt.completeopt = "menu,menuone,noselect" -- Set completion options
 opt.hlsearch = true -- Highlight search results
--- Pin the provider: autodetection probes every candidate over /mnt/c and costs ~1.1s,
--- which delays the first redraw long after startuptime says Nvim is up.
-local win32yank = "/mnt/c/Program Files/Neovim/bin/win32yank.exe"
-vim.g.clipboard = {
-  name = "win32yank",
-  copy = { ["+"] = { win32yank, "-i", "--crlf" }, ["*"] = { win32yank, "-i", "--crlf" } },
-  paste = { ["+"] = { win32yank, "-o", "--lf" }, ["*"] = { win32yank, "-o", "--lf" } },
-  cache_enabled = 0,
-}
+-- Pin the provider on WSL: autodetection probes every candidate over /mnt/c and costs
+-- ~1.1s, which delays the first redraw long after startuptime says Nvim is up.
+if vim.fn.has "wsl" == 1 then
+  local win32yank = "/mnt/c/Program Files/Neovim/bin/win32yank.exe"
+  vim.g.clipboard = {
+    name = "win32yank",
+    copy = { ["+"] = { win32yank, "-i", "--crlf" }, ["*"] = { win32yank, "-i", "--crlf" } },
+    paste = { ["+"] = { win32yank, "-o", "--lf" }, ["*"] = { win32yank, "-o", "--lf" } },
+    cache_enabled = 0,
+  }
+end
 opt.clipboard:append "unnamedplus" -- Use system clipboard
 
 vim.diagnostic.config { virtual_text = true }
