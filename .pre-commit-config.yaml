@@ -49,8 +49,9 @@ repos:
         files: .config/hypr/
 
   - repo: https://github.com/lunarmodules/luacheck
-    # v1.2.0 breaks on Lua 5.5; fix is on master, unreleased (eea104d)
-    rev: v1.2.0
+    # Pinned past v1.2.0, which breaks on Lua 5.5; the fix is on master, unreleased.
+    # Move back to a tag once a release contains eea104d.
+    rev: eea104d82fa66f27df2a7d900b3c271a6ca122ac
     hooks:
       - id: luacheck
         name: luacheck (nvim)
