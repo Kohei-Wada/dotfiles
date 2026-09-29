@@ -13,7 +13,10 @@ shell_mode = "non_login"   # bash -i 相当
 resume_agents_on_restore = true
 
 [ui]
-mouse_capture = false
+mouse_capture = true
+pane_borders = "auto"
+pane_outer_borders = false
+pane_gaps = false
 
 [ui.sound]
 enabled = true
@@ -21,6 +24,9 @@ enabled = true
 [ui.toast]
 delivery = "system"
 delay_seconds = 0
+
+[ui.toast.clipboard]
+enabled = false
 
 [keys]
 split_vertical = "prefix+v"        # 左右
