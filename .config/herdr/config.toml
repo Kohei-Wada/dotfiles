@@ -5,6 +5,7 @@ onboarding = false
 [theme]
 name = "catppuccin"
 
+auto_switch = false
 [terminal]
 default_shell = "bash"
 shell_mode = "non_login"   # bash -i 相当

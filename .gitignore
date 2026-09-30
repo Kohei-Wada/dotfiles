@@ -13,6 +13,5 @@
 # ~/.claude/ — Claude Code working dir. Track only declarative + lockfile bits.
 # Most of this dir is auto-managed cache, secrets, or per-project state.
 .claude/*
-!.claude/settings.json
 !.claude/statusline.sh
 !.claude/CLAUDE.md
