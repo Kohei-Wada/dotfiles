@@ -3,7 +3,7 @@ onboarding = false
 # Place this file at ~/.config/herdr/config.toml
 
 [theme]
-name = "catppuccin"
+name = "rose-pine"
 
 auto_switch = false
 [terminal]
