@@ -34,3 +34,23 @@ split_vertical = "prefix+v"        # 左右
 split_horizontal = "prefix+minus"  # 上下（tmux の - と一致）
 navigate_workspace_up = "k"
 navigate_workspace_down = "j"
+
+[[keys.command]]
+key = "prefix+shift+h"
+type = "shell"
+command = "herdr pane swap --direction left --current"
+
+[[keys.command]]
+key = "prefix+shift+l"
+type = "shell"
+command = "herdr pane swap --direction right --current"
+
+[[keys.command]]
+key = "prefix+shift+k"
+type = "shell"
+command = "herdr pane swap --direction up --current"
+
+[[keys.command]]
+key = "prefix+shift+j"
+type = "shell"
+command = "herdr pane swap --direction down --current"
