@@ -8,7 +8,7 @@
     "npm:pi-subagents",
     "git:github.com/obra/superpowers"
   ],
-  "defaultProvider": "llama-server",
+  "defaultProvider": "ollama",
   "defaultModel": "qwen3.8:27b",
   "defaultThinkingLevel": "medium",
   "hideThinkingBlock": true,

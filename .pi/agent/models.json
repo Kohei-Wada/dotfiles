@@ -1,9 +1,9 @@
 {
   "providers": {
-    "llama-server": {
-      "baseUrl": "http://192.168.0.19:8090/v1",
+    "ollama": {
+      "baseUrl": "http://192.168.0.19:11434/v1",
       "api": "openai-completions",
-      "apiKey": "none",
+      "apiKey": "ollama",
       "compat": {
         "supportsDeveloperRole": false,
         "supportsReasoningEffort": false
