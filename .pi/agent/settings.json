@@ -1,9 +1,8 @@
 {
-  "lastChangelogVersion": "0.99.1",
+  "lastChangelogVersion": "0.99.2",
   "theme": "dark",
   "packages": [
     "npm:pi-web-access",
-    "npm:pi-mcp-adapter",
     "git:git@github.com:kohei-homelab/homelab-skills@v0.12.0",
     "npm:pi-subagents",
     "git:github.com/obra/superpowers"
