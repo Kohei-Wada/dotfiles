@@ -10,20 +10,51 @@
       },
       "models": [
         {
-          "id": "qwen3.8:27b",
-          "name": "Qwen3.8 27B (thor)",
           "contextWindow": 131072,
-          "maxTokens": 32768,
+          "cost": {
+            "cacheRead": 0,
+            "cacheWrite": 0,
+            "input": 0,
+            "output": 0
+          },
+          "id": "huihui_ai/Qwen3.8-abliterated:27b",
           "input": [
             "text",
             "image"
           ],
+          "maxTokens": 32768,
+          "name": "Qwen3.8 27B abliterated (thor)"
+        },
+        {
+          "contextWindow": 131072,
           "cost": {
-            "input": 0,
-            "output": 0,
             "cacheRead": 0,
-            "cacheWrite": 0
-          }
+            "cacheWrite": 0,
+            "input": 0,
+            "output": 0
+          },
+          "id": "qwen3.8:27b",
+          "input": [
+            "text",
+            "image"
+          ],
+          "maxTokens": 32768,
+          "name": "Qwen3.8 27B (thor)"
+        },
+        {
+          "contextWindow": 40960,
+          "cost": {
+            "cacheRead": 0,
+            "cacheWrite": 0,
+            "input": 0,
+            "output": 0
+          },
+          "id": "qwen3:8b",
+          "input": [
+            "text"
+          ],
+          "maxTokens": 32768,
+          "name": "Qwen3 8B (thor)"
         }
       ]
     }
