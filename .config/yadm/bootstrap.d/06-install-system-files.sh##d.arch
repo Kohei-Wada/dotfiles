@@ -1,0 +1,26 @@
+#!/usr/bin/env bash
+#
+# Install files under ~/.config/yadm/system/ to the same path under /.
+#
+# yadm only tracks $HOME, so system config (systemd drop-ins etc.) lives here
+# and is copied into place. Only files that differ are installed.
+
+set -euo pipefail
+
+SRC="$HOME/.config/yadm/system"
+changed=0
+
+while IFS= read -r -d '' file; do
+    dest="/${file#"$SRC"/}"
+    if ! cmp -s "$file" "$dest"; then
+        sudo install -D -m644 "$file" "$dest"
+        echo "  + $dest"
+        changed=1
+    fi
+done < <(find "$SRC" -type f -print0)
+
+if [[ $changed -eq 1 ]]; then
+    sudo systemctl daemon-reload
+fi
+
+echo "System files install complete."
