@@ -1,182 +1,127 @@
-[
-  {
-    "position": "top",
-    "modules-left": [
-      "hyprland/workspaces"
-    ],
-    "modules-center": [
-      "hyprland/window"
-    ],
-    "modules-right": [
-      "hyprland/language",
-      "idle_inhibitor",
-      "cpu",
-      "memory",
-      "tray",
-      "network",
-      "pulseaudio",
-      "battery",
-      "clock"
-    ],
-    "hyprland/workspaces": {
-      "format": "{name}",
-      "on-click": "activate"
+{
+  "position": "top",
+  "modules-left": [
+    "hyprland/workspaces"
+  ],
+  "modules-center": [
+    "hyprland/window"
+  ],
+  "modules-right": [
+    "hyprland/language",
+    "idle_inhibitor",
+    "cpu",
+    "memory",
+    "tray",
+    "network",
+    "pulseaudio",
+    "battery",
+    "clock"
+  ],
+
+  "hyprland/workspaces": {
+    "format": "{name}",
+    "on-click": "activate"
+  },
+
+  "hyprland/window": {
+    "format": "{title}",
+    "separate-outputs": true,
+    "max-length": 80
+  },
+
+  "hyprland/language": {
+    "format": " {short}",
+    "tooltip-format": "Keyboard layout: {long}"
+  },
+
+  "idle_inhibitor": {
+    "format": "{icon}",
+    "format-icons": {
+      "activated": "",
+      "deactivated": ""
     },
-    "hyprland/window": {
-      "format": "{title}",
-      "separate-outputs": true,
-      "max-length": 80
-    },
-    "hyprland/language": {
-      "format": " {short}",
-      "tooltip-format": "Keyboard layout: {long}"
-    },
-    "idle_inhibitor": {
-      "format": "{icon}",
-      "format-icons": {
-        "activated": "",
-        "deactivated": ""
-      },
-      "tooltip-format-activated": "Idle inhibited (caffeine on)",
-      "tooltip-format-deactivated": "Idle allowed"
-    },
-    "cpu": {
-      "interval": 5,
-      "format": " {usage}%",
-      "tooltip": true,
-      "states": {
-        "warning": 70,
-        "critical": 90
-      }
-    },
-    "memory": {
-      "interval": 5,
-      "format": "󰍛 {percentage}%",
-      "tooltip-format": "Used: {used:0.1f}G / {total:0.1f}G  Swap: {swapUsed:0.1f}G",
-      "states": {
-        "warning": 75,
-        "critical": 90
-      }
-    },
-    "tray": {
-      "spacing": 10
-    },
-    "network": {
-      "format-wifi": "<span foreground='#f5e0dc'>  </span>{essid}",
-      "format-ethernet": "<span foreground='#f5e0dc'>󰈀  </span>{ipaddr}",
-      "format-linked": "<span foreground='#f5e0dc'>  </span>{ifname} (No IP)",
-      "format-disconnected": "<span foreground='#f5e0dc'>  </span>Offline",
-      "tooltip-format-wifi": "{essid} ({signalStrength}%)\nIP: {ipaddr}\nFreq: {frequency} MHz",
-      "tooltip-format-ethernet": "{ifname}\nIP: {ipaddr}",
-      "tooltip-format-disconnected": "Disconnected",
-      "interface": "wlp0s20f3",
-      "on-click": "ghostty -e nmtui"
-    },
-    "pulseaudio": {
-      "format": "{icon}  {volume}%",
-      "format-muted": " muted",
-      "format-icons": {
-        "headphone": "",
-        "default": [
-          "",
-          "",
-          ""
-        ]
-      },
-      "on-click": "pavucontrol",
-      "on-click-right": "pactl set-sink-mute @DEFAULT_SINK@ toggle",
-      "scroll-step": 5,
-      "tooltip-format": "{desc} — {volume}%"
-    },
-    "battery": {
-      "states": {
-        "warning": 30,
-        "critical": 15
-      },
-      "format": "<span foreground='#a6e3a1'>{icon} </span> {capacity}%",
-      "format-warning": "<span foreground='#f9e2af'>{icon} </span> {capacity}%",
-      "format-critical": "<span foreground='#f38ba8'>{icon} </span> {capacity}%",
-      "format-charging": "<span foreground='#a6e3a1'> </span>{capacity}%",
-      "format-plugged": "<span foreground='#a6e3a1'> </span>{capacity}%",
-      "format-alt": "<span foreground='#a6e3a1'>{icon} </span> {time}",
-      "format-full": "<span foreground='#a6e3a1'> </span>{capacity}%",
-      "format-icons": [
-        "",
-        "",
-        "",
-        "",
-        ""
-      ],
-      "tooltip-format": "{capacity}% — {time}"
-    },
-    "clock": {
-      "format": "<span foreground='#f5c2e7'>  </span>{:%a %d %H:%M}",
-      "format-alt": "<span foreground='#f5c2e7'>  </span>{:%Y-%m-%d %H:%M:%S}",
-      "tooltip-format": "<big>{:%Y %B}</big>\n<tt><small>{calendar}</small></tt>"
+    "tooltip-format-activated": "Idle inhibited (caffeine on)",
+    "tooltip-format-deactivated": "Idle allowed"
+  },
+
+  "cpu": {
+    "interval": 5,
+    "format": " {usage}%",
+    "tooltip": true,
+    "states": {
+      "warning": 70,
+      "critical": 90
     }
   },
-  {
-    "name": "dock",
-    "layer": "top",
-    "position": "bottom",
-    "height": 48,
-    "modules-center": [
-      "image#ghostty",
-      "image#chrome",
-      "image#slack",
-      "image#discord",
-      "image#obsidian",
-      "image#spotify",
-      "wlr/taskbar"
-    ],
-    "image#ghostty": {
-      "path": "/usr/share/icons/hicolor/128x128/apps/com.mitchellh.ghostty.png",
-      "size": 32,
-      "interval": 86400,
-      "tooltip": false,
-      "on-click": "gtk-launch com.mitchellh.ghostty"
-    },
-    "image#chrome": {
-      "path": "/usr/share/icons/hicolor/128x128/apps/google-chrome.png",
-      "size": 32,
-      "interval": 86400,
-      "tooltip": false,
-      "on-click": "gtk-launch google-chrome"
-    },
-    "image#slack": {
-      "path": "/usr/share/pixmaps/slack.png",
-      "size": 32,
-      "interval": 86400,
-      "tooltip": false,
-      "on-click": "gtk-launch slack"
-    },
-    "image#discord": {
-      "path": "/usr/share/icons/hicolor/256x256/apps/discord.png",
-      "size": 32,
-      "interval": 86400,
-      "tooltip": false,
-      "on-click": "gtk-launch discord"
-    },
-    "image#obsidian": {
-      "path": "/usr/share/icons/hicolor/512x512/apps/obsidian.png",
-      "size": 32,
-      "interval": 86400,
-      "tooltip": false,
-      "on-click": "gtk-launch obsidian"
-    },
-    "image#spotify": {
-      "path": "/usr/share/pixmaps/spotify-client.png",
-      "size": 32,
-      "interval": 86400,
-      "tooltip": false,
-      "on-click": "gtk-launch spotify"
-    },
-    "wlr/taskbar": {
-      "format": "{icon}",
-      "icon-size": 32,
-      "tooltip-format": "{title}",
-      "on-click": "activate",
-      "on-click-middle": "close"
+
+  "memory": {
+    "interval": 5,
+    "format": "󰍛 {percentage}%",
+    "tooltip-format": "Used: {used:0.1f}G / {total:0.1f}G  Swap: {swapUsed:0.1f}G",
+    "states": {
+      "warning": 75,
+      "critical": 90
     }
+  },
+
+  "tray": {
+    "spacing": 10
+  },
+
+  "network": {
+    "format-wifi": "<span foreground='#f5e0dc'>  </span>{essid}",
+    "format-ethernet": "<span foreground='#f5e0dc'>󰈀  </span>{ipaddr}",
+    "format-linked": "<span foreground='#f5e0dc'>  </span>{ifname} (No IP)",
+    "format-disconnected": "<span foreground='#f5e0dc'>  </span>Offline",
+    "tooltip-format-wifi": "{essid} ({signalStrength}%)\nIP: {ipaddr}\nFreq: {frequency} MHz",
+    "tooltip-format-ethernet": "{ifname}\nIP: {ipaddr}",
+    "tooltip-format-disconnected": "Disconnected",
+    "interface": "wlp0s20f3",
+    "on-click": "ghostty -e nmtui"
+  },
+
+  "pulseaudio": {
+    "format": "{icon}  {volume}%",
+    "format-muted": " muted",
+    "format-icons": {
+      "headphone": "",
+      "default": [
+        "",
+        "",
+        ""
+      ]
+    },
+    "on-click": "pavucontrol",
+    "on-click-right": "pactl set-sink-mute @DEFAULT_SINK@ toggle",
+    "scroll-step": 5,
+    "tooltip-format": "{desc} — {volume}%"
+  },
+
+  "battery": {
+    "states": {
+      "warning": 30,
+      "critical": 15
+    },
+    "format": "<span foreground='#a6e3a1'>{icon} </span> {capacity}%",
+    "format-warning": "<span foreground='#f9e2af'>{icon} </span> {capacity}%",
+    "format-critical": "<span foreground='#f38ba8'>{icon} </span> {capacity}%",
+    "format-charging": "<span foreground='#a6e3a1'> </span>{capacity}%",
+    "format-plugged": "<span foreground='#a6e3a1'> </span>{capacity}%",
+    "format-alt": "<span foreground='#a6e3a1'>{icon} </span> {time}",
+    "format-full": "<span foreground='#a6e3a1'> </span>{capacity}%",
+    "format-icons": [
+      "",
+      "",
+      "",
+      "",
+      ""
+    ],
+    "tooltip-format": "{capacity}% — {time}"
+  },
+
+  "clock": {
+    "format": "<span foreground='#f5c2e7'>  </span>{:%a %d %H:%M}",
+    "format-alt": "<span foreground='#f5c2e7'>  </span>{:%Y-%m-%d %H:%M:%S}",
+    "tooltip-format": "<big>{:%Y %B}</big>\n<tt><small>{calendar}</small></tt>"
   }
-]
+}

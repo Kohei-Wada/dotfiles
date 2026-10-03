@@ -183,36 +183,3 @@ button:hover {
 .modules-right > widget:last-child > #workspaces {
     margin-right: 0;
 }
-
-window#waybar.dock {
-    background-color: @crust;
-    border-bottom: none;
-    border-top: 1px solid @overlay1;
-}
-
-window#waybar.dock #image {
-    padding: 0 8px;
-    margin: 4px 2px;
-    border-radius: 8px;
-}
-
-window#waybar.dock #image:hover {
-    background-color: @surface0;
-}
-
-window#waybar.dock #taskbar {
-    margin-left: 12px;
-    padding-left: 12px;
-    border-left: 1px solid @surface1;
-}
-
-window#waybar.dock #taskbar button {
-    padding: 0 6px;
-    border-top: none;
-    border-radius: 8px;
-}
-
-window#waybar.dock #taskbar button.active {
-    background-color: @surface0;
-    border-bottom: 2px solid @mauve;
-}
