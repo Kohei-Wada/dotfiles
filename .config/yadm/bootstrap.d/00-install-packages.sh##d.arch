@@ -32,6 +32,7 @@ miller
 cmake
 bash-completion
 openssh
+mosh
 EOF
 )
 

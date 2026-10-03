@@ -1,0 +1,12 @@
+#!/usr/bin/env bash
+#
+# Enable system services this machine relies on.
+#
+# sshd: the moshi app on the phone pairs through authorized_keys, so it needs the
+# OS sshd (not Tailscale SSH). sshd_config already has PasswordAuthentication no.
+
+set -euo pipefail
+
+sudo systemctl enable --now sshd
+
+echo "Services enabled."
