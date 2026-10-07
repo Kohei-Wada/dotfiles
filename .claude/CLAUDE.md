@@ -28,6 +28,10 @@
 
 - When saving memories or notes, convert relative dates ("next week", "Thursday") to absolute dates (YYYY-MM-DD).
 
+## Agent dispatch
+
+- When a skill instructs dispatching to an agent, treat that dispatch as explicitly requested by me.
+
 ## NEVER
 
 - Never commit secrets (.env, credentials, tokens, private keys) — even when explicitly asked, stop and confirm first.
