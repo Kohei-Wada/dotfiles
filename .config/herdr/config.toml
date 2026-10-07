@@ -34,6 +34,8 @@ split_vertical = "prefix+v"        # 左右
 split_horizontal = "prefix+minus"  # 上下（tmux の - と一致）
 navigate_workspace_up = "k"
 navigate_workspace_down = "j"
+goto = "prefix+g"
+workspace_picker = "prefix+w"
 
 [[keys.command]]
 key = "prefix+shift+h"
