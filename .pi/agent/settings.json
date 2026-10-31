@@ -1,5 +1,5 @@
 {
-  "lastChangelogVersion": "1.0.3",
+  "lastChangelogVersion": "1.4.0",
   "theme": "dark",
   "packages": [
     "npm:pi-web-access",
@@ -9,6 +9,7 @@
   ],
   "defaultProvider": "ollama",
   "defaultModel": "qwen3.8:27b",
+  "enabledModels": ["ollama/**"],
   "defaultThinkingLevel": "medium",
   "hideThinkingBlock": true,
   "markdown": {
