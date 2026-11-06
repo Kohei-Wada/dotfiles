@@ -1,0 +1,121 @@
+#!/usr/bin/env python3
+"""Toggle a vertical brightness slider popup under the cursor (for waybar on-click)."""
+import json
+import os
+import signal
+import subprocess
+import sys
+
+import gi
+
+gi.require_version("Gtk", "3.0")
+gi.require_version("Gdk", "3.0")
+gi.require_version("GtkLayerShell", "0.1")
+from gi.repository import Gdk, GLib, GLibUnix, Gtk, GtkLayerShell  # noqa: E402
+
+PIDFILE = os.path.join(os.environ.get("XDG_RUNTIME_DIR", "/tmp"), "brightness-popup.pid")
+WIDTH, HEIGHT = 56, 220
+GAP = 6
+
+CSS = b"""
+window { background-color: transparent; }
+#popup { background-color: #1e1e2e; border: 2px solid #f9e2af; border-radius: 10px; }
+label { color: #f9e2af; font-weight: bold; }
+scale trough { min-width: 8px; border-radius: 4px; background-color: #313244; border: none; }
+scale highlight { border-radius: 4px; background-color: #f9e2af; border: none; }
+scale slider { min-width: 16px; min-height: 16px; border-radius: 8px;
+               background-color: #f5e0dc; border: none; box-shadow: none; }
+"""
+
+
+def toggle_existing():
+    try:
+        pid = int(open(PIDFILE).read())
+        if b"brightness-popup" not in open(f"/proc/{pid}/cmdline", "rb").read():
+            return False
+        os.kill(pid, signal.SIGTERM)
+        return True
+    except (OSError, ValueError):
+        return False
+
+
+def brightness():
+    out = subprocess.run(["brightnessctl", "-m"], capture_output=True, text=True).stdout
+    return int(out.split(",")[3].rstrip("%"))
+
+
+def cursor_x_on_monitor():
+    x, _ = (int(v) for v in subprocess.run(
+        ["hyprctl", "cursorpos"], capture_output=True, text=True).stdout.split(","))
+    for m in json.loads(subprocess.run(
+            ["hyprctl", "monitors", "-j"], capture_output=True, text=True).stdout):
+        if m["focused"]:
+            return x - int(m["x"])
+    return x
+
+
+def main():
+    if toggle_existing():
+        return
+    with open(PIDFILE, "w") as f:
+        f.write(str(os.getpid()))
+
+    provider = Gtk.CssProvider()
+    provider.load_from_data(CSS)
+    Gtk.StyleContext.add_provider_for_screen(
+        Gdk.Screen.get_default(), provider, Gtk.STYLE_PROVIDER_PRIORITY_USER)
+
+    win = Gtk.Window()
+    win.set_app_paintable(True)
+    visual = win.get_screen().get_rgba_visual()
+    if visual:
+        win.set_visual(visual)
+    GtkLayerShell.init_for_window(win)
+    GtkLayerShell.set_layer(win, GtkLayerShell.Layer.OVERLAY)
+    GtkLayerShell.set_anchor(win, GtkLayerShell.Edge.TOP, True)
+    GtkLayerShell.set_anchor(win, GtkLayerShell.Edge.LEFT, True)
+    GtkLayerShell.set_margin(win, GtkLayerShell.Edge.TOP, GAP)
+    GtkLayerShell.set_margin(win, GtkLayerShell.Edge.LEFT, max(0, cursor_x_on_monitor() - WIDTH // 2))
+    GtkLayerShell.set_keyboard_mode(win, GtkLayerShell.KeyboardMode.ON_DEMAND)
+
+    box = Gtk.Box(orientation=Gtk.Orientation.VERTICAL, spacing=6)
+    box.set_name("popup")
+    box.set_border_width(10)
+    box.set_size_request(WIDTH, HEIGHT)
+    label = Gtk.Label()
+    scale = Gtk.Scale.new_with_range(Gtk.Orientation.VERTICAL, 1, 100, 1)
+    scale.set_inverted(True)
+    scale.set_draw_value(False)
+    scale.set_vexpand(True)
+    scale.set_value(brightness())
+    label.set_text(f"{int(scale.get_value())}%")
+
+    def on_change(s):
+        v = int(s.get_value())
+        label.set_text(f"{v}%")
+        subprocess.Popen(["brightnessctl", "-q", "set", f"{v}%"])
+
+    scale.connect("value-changed", on_change)
+    box.pack_start(label, False, False, 0)
+    box.pack_start(scale, True, True, 0)
+    win.add(box)
+
+    def quit_(*_):
+        try:
+            os.remove(PIDFILE)
+        except OSError:
+            pass
+        Gtk.main_quit()
+
+    win.connect("key-press-event", lambda _w, e: e.keyval == Gdk.KEY_Escape and quit_())
+    win.connect("leave-notify-event",
+                lambda _w, e: e.detail != Gdk.NotifyType.INFERIOR and quit_())
+    win.connect("destroy", quit_)
+    GLibUnix.signal_add(GLib.PRIORITY_DEFAULT, signal.SIGTERM, quit_)
+
+    win.show_all()
+    Gtk.main()
+
+
+if __name__ == "__main__":
+    sys.exit(main())
