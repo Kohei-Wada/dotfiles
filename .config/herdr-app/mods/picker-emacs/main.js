@@ -243,6 +243,17 @@ export default class Picker extends View {
           this.input.set_value("");
           this.filter = "";
           this.at = 0;
+        } else if (c && k === "h") {
+          const v = this.input.value();
+          let { start, end } = this.input.selected_range();
+          if (start === end) {
+            if (start === 0) return cx.stop_propagation();
+            start -= /[\udc00-\udfff]/.test(v[start - 1]) && start > 1 ? 2 : 1;
+          }
+          this.input.set_value(v.slice(0, start) + v.slice(end));
+          this.input.set_selected_range({ start, end: start });
+          this.filter = this.input.value();
+          this.at = 0;
         } else if (k === "d" && e.modifiers.control) {
           if (sel?.kind === "ctx") {
             this.close();
