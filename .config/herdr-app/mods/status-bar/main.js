@@ -22,7 +22,7 @@ export default class WorkspaceStatus extends View {
     const label = (icon, text) => h_flex().gap(6).items_center().child(svg(`mods/workspace-chrome/${icon}.svg`).size(13)).child(text);
     const mode = shared("copy-mode");
     return h_flex().size_full().px(14).gap(16).items_center().bg(t.chrome).border_t(1).border_color(t.border).text_size(11.8).text_color(t.muted)
-      .when(Boolean(mode), el => el.child(div().text_color(mode.label === "COPY" ? t.foreground : t.accent).child(`-- ${mode.label} --${mode.count ? "  " + mode.count : ""}`)))
+      .when(Boolean(mode), el => el.child(div().when(mode.label !== "COPY", d => d.text_color(t.accent)).child(`-- ${mode.label} --${mode.count ? "  " + mode.count : ""}`)))
       .child(label(space?.machine ? "server" : "monitor", space?.machine ?? "This computer"))
       .when(Boolean(space?.branch), el => el.child(label("branch", space.branch)))
       .child(h_flex().gap(6).items_center().child(div().size(6).rounded(3).bg(t.dim)).child(`${list.length} agents`)
