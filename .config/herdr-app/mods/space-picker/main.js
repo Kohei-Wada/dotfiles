@@ -1,4 +1,4 @@
-// Go to a space: one row per space, busiest first by the core's order. Type to filter,
+// Go to a space: one row per space, in sidebar order. Type to filter,
 // ctrl-n/p or ↑/↓ and Enter to go, ctrl-d to close the space, Esc to leave.
 
 import { View, div, svg } from "gpui-kit";
