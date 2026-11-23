@@ -94,7 +94,8 @@
     "ctrl-b 7": "tab.select:7",
     "ctrl-b 8": "tab.select:8",
     "ctrl-b 9": "tab.select:9",
-    "ctrl-b g": "mod.open:picker-emacs"
+    "ctrl-b g": "mod.open:picker-emacs",
+    "ctrl-b [": "mod.open:copy-mode"
   },
   "terminal": {
     "ctrl-backspace": "send:\u0017",
