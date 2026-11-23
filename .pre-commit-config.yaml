@@ -62,6 +62,14 @@ repos:
         args: ["--config=.config/hypr/.luacheckrc", .config/hypr/]
         files: .config/hypr/
 
+  - repo: https://github.com/biomejs/pre-commit
+    rev: v2.6.8
+    hooks:
+      - id: biome-lint
+        # Lint only: the herdr-app mods are clones of upstream code, so no rewrites.
+        entry: biome lint --files-ignore-unknown=true --no-errors-on-unmatched
+        files: \.(m|c)?(js|ts)$
+
   - repo: https://github.com/rhysd/actionlint
     rev: v1.7.12
     hooks:

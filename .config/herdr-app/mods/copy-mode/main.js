@@ -118,17 +118,17 @@ export default class CopyMode extends View {
     };
     if (kind === "w") {
       const start = at();
-      let moved;
-      while ((moved = fwd()) === true && start !== 0 && at() === start);
-      while (moved && at() === 0 && (moved = fwd()));
+      let moved = fwd();
+      while (moved === true && start !== 0 && at() === start) moved = fwd();
+      while (moved && at() === 0) moved = fwd();
     } else if (kind === "e") {
       let moved = fwd();
-      while (moved && at() === 0 && (moved = fwd()));
+      while (moved && at() === 0) moved = fwd();
       const c = at();
       while (cls(cells[col + 1]) === c && c !== 0 && fwd() === true);
     } else if (kind === "b") {
       let moved = back();
-      while (moved && at() === 0 && (moved = back()));
+      while (moved && at() === 0) moved = back();
       const c = at();
       while (col > 0 && cls(cells[col - 1]) === c && c !== 0 && back() === true);
     }

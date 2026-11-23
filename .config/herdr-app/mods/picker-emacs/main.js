@@ -70,7 +70,10 @@ export default class Picker extends View {
     const live = terminals().filter((x) => x.state === "live");
     const teamOf = (addrs) => {
       let n = 0;
-      const walk = (a) => live.filter((x) => x.parent === a).forEach((k) => (n++, walk(k.address)));
+      const walk = (a) => live.filter((x) => x.parent === a).forEach((k) => {
+        n++;
+        walk(k.address);
+      });
       addrs.forEach(walk);
       return n;
     };
