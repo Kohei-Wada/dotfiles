@@ -110,14 +110,15 @@
                     "color": "border"
                   },
                   "focus": {
-                    "width": 1,
+                    "width": 0,
                     "color": "accent"
                   },
                   "radius": 0,
-                  "gap": 1,
+                  "gap": 2,
                   "lone": false
                 }
-              }
+              },
+              "background": "border"
             },
             {
               "id": "panel",
@@ -160,7 +161,7 @@
           "id": "status",
           "type": "block",
           "content": {
-            "mod": "workspace-status"
+            "mod": "status-bar"
           },
           "size": {
             "px": 28

@@ -2,7 +2,7 @@
 // h j k l, w b e, 0 ^ $, gg G, ctrl-u ctrl-d, counts; v / V to select, y to copy, Esc or q to leave.
 
 import { View, div } from "gpui-kit";
-import { focused, panes, terminals, run, hc, theme, props, closeOverlay } from "herdr";
+import { focused, panes, terminals, run, hc, props, closeOverlay, setShared } from "herdr";
 
 const wide = (c) => /[ᄀ-ᅟ⺀-꓏가-힣豈-﫿︰-﹏＀-｠￠-￦]|[\ud800-\udbff]/.test(c);
 const cls = (c) => (c === undefined || /\s/.test(c) ? 0 : /[\p{L}\p{N}_]/u.test(c) ? 1 : 2);
@@ -31,6 +31,7 @@ export default class CopyMode extends View {
     this.handle.focus();
     cx.timer.after(100, () => this.handle.focus());
     if (!this.term) return this.quit();
+    this.show();
     this.do(cx, async (cx) => {
       await this.apply(cx, "terminal.select", { at: "cursor" });
       if (!this.sel()) this.quit();
@@ -155,15 +156,24 @@ export default class CopyMode extends View {
     }
   }
 
+  // The footer (status-bar mod) shows this.
+  show() {
+    const label = this.visual === "V" ? "VISUAL LINE" : this.visual ? "VISUAL" : "COPY";
+    setShared("copy-mode", this.closed ? null : { label, count: this.count + this.pending });
+  }
+
   quit(keep) {
     if (this.closed) return;
     this.closed = true;
+    setShared("copy-mode", null);
     if (!keep && this.term) run("terminal.clear_selection", { terminal: this.term });
     if (props()?.overlay) closeOverlay(props().overlay);
   }
 
   async close() {
-    if (!this.closed && this.term) await run("terminal.clear_selection", { terminal: this.term });
+    if (this.closed) return;
+    setShared("copy-mode", null);
+    if (this.term) await run("terminal.clear_selection", { terminal: this.term });
   }
 
   key(e, cx) {
@@ -235,25 +245,15 @@ export default class CopyMode extends View {
     }
   }
 
-  render(cx) {
-    const t = theme();
-    const label = this.visual === "V" ? "-- VISUAL LINE --" : this.visual ? "-- VISUAL --" : "-- COPY --";
+  render() {
     return div()
       .id("copy-mode")
       .track_focus(this.handle)
       .size_full()
-      .flex()
-      .items_center()
-      .justify_center()
-      .bg(t.popover)
-      .text_size(12)
-      .font_semibold()
-      .text_color(this.visual ? t.accent : t.foreground)
       .on_key_down((e, cx) => {
         this.key(e, cx);
+        this.show();
         cx.stop_propagation();
-        cx.notify();
-      })
-      .child(this.count ? `${label}  ${this.count}` : label);
+      });
   }
 }

@@ -1,1 +1,1 @@
-{ "place": "none", "title": "Copy mode", "overlay": { "kind": "popup", "at": "top", "offset": 8, "width": 220, "height": 36 } }
+{ "place": "none", "title": "Copy mode", "overlay": { "kind": "popup", "at": "top", "frame": "none", "width": 1, "height": 1 } }
