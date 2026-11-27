@@ -1,6 +1,6 @@
 {
-  "searxngBaseUrl": "http://192.168.0.19:8888",
+  "searxngBaseUrl": "http://thor:8888",
   "provider": "searxng",
   "workflow": "none",
-  "ssrf": { "allowRanges": ["192.168.0.19/32"] }
+  "ssrf": { "allowRanges": ["100.64.0.0/10"] }
 }

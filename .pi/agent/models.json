@@ -1,7 +1,7 @@
 {
   "providers": {
     "ollama": {
-      "baseUrl": "http://192.168.0.19:11434/v1",
+      "baseUrl": "http://thor:11434/v1",
       "api": "openai-completions",
       "apiKey": "ollama",
       "compat": {
