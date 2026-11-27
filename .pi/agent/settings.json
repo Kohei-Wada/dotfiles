@@ -1,5 +1,5 @@
 {
-  "lastChangelogVersion": "1.4.0",
+  "lastChangelogVersion": "1.6.1",
   "theme": "dark",
   "packages": [
     "npm:pi-web-access",
@@ -8,11 +8,17 @@
     "git:github.com/obra/superpowers"
   ],
   "defaultProvider": "ollama",
-  "defaultModel": "qwen3.8:27b",
-  "enabledModels": ["ollama/**"],
+  "defaultModel": "bonsai2.5:27b-ptq1_0",
+  "enabledModels": [
+    "ollama/**"
+  ],
   "defaultThinkingLevel": "medium",
   "hideThinkingBlock": true,
   "markdown": {
     "mermaid": "streaming"
+  },
+  "extensionChangelogVersions": {
+    "{\"source\":\"npm:pi-web-access\",\"scope\":\"user\"}": "0.48.0",
+    "{\"source\":\"npm:pi-subagents\",\"scope\":\"user\"}": "0.90.0"
   }
 }

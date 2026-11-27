@@ -10,20 +10,35 @@
       },
       "models": [
         {
-          "contextWindow": 131072,
+          "contextWindow": 262144,
           "cost": {
             "cacheRead": 0,
             "cacheWrite": 0,
             "input": 0,
             "output": 0
           },
-          "id": "huihui_ai/Qwen3.8-abliterated:27b",
+          "id": "bonsai2.5:27b-ptq1_0",
           "input": [
             "text",
             "image"
           ],
           "maxTokens": 32768,
-          "name": "Qwen3.8 27B abliterated (thor)"
+          "name": "Bonsai 2.5 27B PTQ1_0 (thor)"
+        },
+        {
+          "contextWindow": 32768,
+          "cost": {
+            "cacheRead": 0,
+            "cacheWrite": 0,
+            "input": 0,
+            "output": 0
+          },
+          "id": "bonsai2.5:27b-q2_0",
+          "input": [
+            "text"
+          ],
+          "maxTokens": 32768,
+          "name": "Bonsai 2.5 27B Q2_0 (thor)"
         },
         {
           "contextWindow": 131072,
@@ -42,19 +57,66 @@
           "name": "Qwen3.8 27B (thor)"
         },
         {
-          "contextWindow": 40960,
+          "contextWindow": 131072,
           "cost": {
             "cacheRead": 0,
             "cacheWrite": 0,
             "input": 0,
             "output": 0
           },
-          "id": "qwen3:8b",
+          "id": "qwen3.8-pi:27b",
           "input": [
             "text"
           ],
           "maxTokens": 32768,
-          "name": "Qwen3 8B (thor)"
+          "name": "Qwen3.8 27B pi-adapted (thor)"
+        },
+        {
+          "id": "inkling-2-mini",
+          "name": "Inkling 2 Mini (thor)",
+          "input": [
+            "text",
+            "image"
+          ],
+          "contextWindow": 98304,
+          "maxTokens": 32768,
+          "cost": {
+            "cacheRead": 0,
+            "cacheWrite": 0,
+            "input": 0,
+            "output": 0
+          }
+        },
+        {
+          "id": "huihui_ai/Qwen3.8-abliterated:27b",
+          "name": "Qwen3.8 27B abliterated (thor)",
+          "input": [
+            "text",
+            "image"
+          ],
+          "contextWindow": 131072,
+          "maxTokens": 32768,
+          "cost": {
+            "cacheRead": 0,
+            "cacheWrite": 0,
+            "input": 0,
+            "output": 0
+          }
+        },
+        {
+          "id": "qwen3:8b",
+          "name": "Qwen3 8B (thor)",
+          "input": [
+            "text"
+          ],
+          "contextWindow": 40960,
+          "maxTokens": 32768,
+          "cost": {
+            "cacheRead": 0,
+            "cacheWrite": 0,
+            "input": 0,
+            "output": 0
+          }
         }
       ]
     }
