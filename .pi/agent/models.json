@@ -1,9 +1,9 @@
 {
   "providers": {
-    "ollama": {
+    "llama-swap": {
       "baseUrl": "http://thor:11434/v1",
       "api": "openai-completions",
-      "apiKey": "ollama",
+      "apiKey": "none",
       "compat": {
         "supportsDeveloperRole": false,
         "supportsReasoningEffort": false

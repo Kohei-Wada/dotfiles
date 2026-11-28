@@ -1,5 +1,5 @@
 {
-  "lastChangelogVersion": "1.6.1",
+  "lastChangelogVersion": "1.7.0",
   "theme": "dark",
   "packages": [
     "npm:pi-web-access",
@@ -7,10 +7,10 @@
     "npm:pi-subagents",
     "git:github.com/obra/superpowers"
   ],
-  "defaultProvider": "ollama",
+  "defaultProvider": "llama-swap",
   "defaultModel": "bonsai2.5:27b-ptq1_0",
   "enabledModels": [
-    "ollama/**"
+    "llama-swap/**"
   ],
   "defaultThinkingLevel": "medium",
   "hideThinkingBlock": true,
